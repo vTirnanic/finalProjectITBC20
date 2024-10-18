@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import java.io.IOException;
@@ -36,4 +37,10 @@ public class BaseTest {
     public void jsClick(WebElement element) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
     }
+/*
+    @AfterClass
+    public void tearDown() {
+        driver.quit();
+    }
+ */
 }
