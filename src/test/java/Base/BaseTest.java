@@ -21,6 +21,8 @@ public class BaseTest {
     public ProductPage productPage;
     public CartPage cartPage;
     public Checkout1Page checkout1Page;
+    public Checkout2Page checkout2Page;
+    public Checkout3Page checkout3Page;
     public ExcelReader excelReader;
 
 
@@ -37,6 +39,8 @@ public class BaseTest {
         productPage = new ProductPage();
         cartPage = new CartPage();
         checkout1Page = new Checkout1Page();
+        checkout2Page = new Checkout2Page();
+        checkout3Page = new Checkout3Page();
     }
 
     public void scrollToElement(WebElement element) {
