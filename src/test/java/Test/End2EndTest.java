@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class EndtoendTest extends BaseTest {
+public class End2EndTest extends BaseTest {
 
     @BeforeMethod
     public void pageSetUp() {

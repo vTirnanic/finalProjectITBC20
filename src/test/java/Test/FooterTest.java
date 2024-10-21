@@ -30,7 +30,7 @@ public class FooterTest extends BaseTest {
     }
 
     @Test
-    public void userCanUseFooterLinks() throws InterruptedException {
+    public void userCanAccessFooterLinks() throws InterruptedException {
         logging();
         scrollToElement(inventoryPage.footer);
         inventoryPage.clickOnTwiterrIcon();
