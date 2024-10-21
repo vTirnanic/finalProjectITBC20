@@ -18,6 +18,7 @@ public class BaseTest {
     public static WebDriver driver;
     public HomepagePage homepagePage;
     public InventoryPage inventoryPage;
+    public ExcelReader excelReader;
 
 
     @BeforeClass
@@ -25,6 +26,8 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+
+        excelReader = new ExcelReader("Credentials.xlsx");
 
         homepagePage = new HomepagePage();
         inventoryPage = new InventoryPage();
@@ -42,5 +45,5 @@ public class BaseTest {
     public void tearDown() {
         driver.quit();
     }
- */
+*/
 }

@@ -14,4 +14,17 @@ public class InventoryPage extends BaseTest {
     @FindBy(id = "shopping_cart_container")
     public WebElement shoppingCart;
 
+    @FindBy(id = "react-burger-menu-btn")
+    public WebElement hamburger;
+
+    @FindBy(id = "logout_sidebar_link")
+    public WebElement logoutLink;
+
+    public void clickOnHamburger() {
+        hamburger.click();
+    }
+
+    public void clickOnLogoutLink() {
+        logoutLink.click();
+    }
 }

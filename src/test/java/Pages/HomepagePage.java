@@ -21,10 +21,12 @@ public class HomepagePage extends BaseTest {
     public WebElement loginButton;
 
     public void inputUsername(String username) {
+        usernameField.clear();
         usernameField.sendKeys(username);
     }
 
     public void inputPassword(String password) {
+        passwordField.clear();
         passwordField.sendKeys(password);
     }
 
