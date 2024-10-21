@@ -1,6 +1,11 @@
 package Test;
 
 import Base.BaseTest;
+import Pages.HomepagePage;
+import Pages.InventoryPage;
+import Pages.ProductPage;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -14,8 +19,14 @@ public class LoginTest extends BaseTest {
 
     @BeforeMethod
     public void pageSetUp() {
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.navigate().to("https://www.saucedemo.com/");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+        homepagePage = new HomepagePage();
+        inventoryPage = new InventoryPage();
+        productPage = new ProductPage();
     }
 
     @Test
@@ -87,7 +98,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void userCannotLoginWithBlankPassword() {
 
-        String validUsername = excelReader.getStringData("Sheet1",1,0);
+        String validUsername = excelReader.getStringData("Sheet1", 1, 0);
 
         homepagePage.inputUsername(validUsername);
         homepagePage.clickOnLoginButton();
@@ -97,13 +108,36 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void userCanLogutFromInvPage() {
+        logging();
+        inventoryPage.clickOnHamburger();
+        inventoryPage.clickOnLogoutLink();
+        Assert.assertEquals(driver.getCurrentUrl(),homePageURL);
+        Assert.assertTrue(homepagePage.loginButton.isDisplayed());
+    }
 
-        String validUsername = excelReader.getStringData("Sheet1",1,0);
+    @Test
+    public void userCanLogoutFromProductPage() {
+        logging();
+        inventoryPage.clickOnItemTitle();
+        productPage.clickOnHamburger();
+        productPage.clickOnLogoutLink();
+        Assert.assertEquals(driver.getCurrentUrl(),homePageURL);
+        Assert.assertTrue(homepagePage.loginButton.isDisplayed());
+    }
+
+    @Test
+    public void userCanLoginWithKeyboard() {
+
+        String validUsername = excelReader.getStringData("Sheet1", 1, 0);
         String validPassword = excelReader.getStringData("Sheet1",1,1);
 
+        homepagePage.usernameField.sendKeys(Keys.TAB);
         homepagePage.inputUsername(validUsername);
+        homepagePage.passwordField.sendKeys(Keys.TAB);
         homepagePage.inputPassword(validPassword);
-        homepagePage.clickOnLoginButton();
-
+        homepagePage.loginButton.sendKeys(Keys.TAB);
+        homepagePage.loginButton.sendKeys(Keys.ENTER);
+        Assert.assertEquals(driver.getCurrentUrl(),inventoryURL);
+        Assert.assertTrue(inventoryPage.shoppingCart.isDisplayed());
     }
 }
