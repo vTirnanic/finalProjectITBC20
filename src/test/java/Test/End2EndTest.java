@@ -16,7 +16,7 @@ public class End2EndTest extends BaseTest {
     }
 
     @Test
-    public void endToEndTest() {
+    public void endToEndTest() throws InterruptedException {
 
         String firstName = excelReader.getStringData("Sheet1",1,4);
         String lastName = excelReader.getStringData("Sheet1",1,5);
@@ -25,7 +25,19 @@ public class End2EndTest extends BaseTest {
         String checkOM = "Checkout: Complete!";
 
         logging();
-        inventoryPage.clickOnItemTitle();
+        inventoryPage.clickOnAtcButton(0);
+        inventoryPage.clickOnAtcButton(1);
+        inventoryPage.openProductPageByTitle(3);
+        productPage.clickOnAtcButton();
+        driver.navigate().back();
+        inventoryPage.openProductPageByTitle(1);
+        productPage.clickOnAtcButton();
+        driver.navigate().back();
+        scrollToElement(inventoryPage.itemTitleLinks.get(4));
+        inventoryPage.openProductPageByTitle(4);
+        productPage.clickOnAtcButton();
+        driver.navigate().back();
+        inventoryPage.openProductPageByTitle(5);
         productPage.clickOnAtcButton();
         productPage.clickOnCartIcon();
         cartPage.clickOnCheckOutButton();

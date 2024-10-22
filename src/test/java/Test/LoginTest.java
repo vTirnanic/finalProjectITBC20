@@ -112,7 +112,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void userCanLogoutFromProductPage() {
         logging();
-        inventoryPage.clickOnItemTitle();
+        inventoryPage.openProductPageByTitle(1);
         productPage.clickOnHamburger();
         productPage.clickOnLogoutLink();
         Assert.assertEquals(driver.getCurrentUrl(),homePageURL);
