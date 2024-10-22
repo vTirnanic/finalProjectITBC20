@@ -46,7 +46,10 @@ public class SortingTest extends BaseTest {
     @Test
     public void userCanSortItemByPLH() {
         logging();
+        inventoryPage.itemPricesBeforeSorting();
+        System.out.println(inventoryPage.itemPricesBeforeSorting());
         inventoryPage.selectSortOption("Price (low to high)");
+
     }
 
     @Test
