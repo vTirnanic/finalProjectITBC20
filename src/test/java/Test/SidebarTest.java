@@ -8,7 +8,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.time.Instant;
 
 public class SidebarTest extends BaseTest {
 
@@ -28,21 +27,21 @@ public class SidebarTest extends BaseTest {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.elementToBeClickable(inventoryPage.sbCloseIcon));
         Assert.assertTrue(inventoryPage.sbCloseIcon.isDisplayed());
-        inventoryPage.sbCloseIcon.click();
 
-        boolean sbCloseIconIsPresent = false;
+        inventoryPage.clickOnSbCloseIcon();
+        boolean sidebarIsPresent = false;
         try {
-            sbCloseIconIsPresent = inventoryPage.sideBar.isDisplayed();
+            sidebarIsPresent = inventoryPage.sideBar.isDisplayed();
         } catch (Exception e) {
             System.out.println(e);
         }
-        Assert.assertFalse(sbCloseIconIsPresent);
+        Assert.assertFalse(sidebarIsPresent);
     }
 
     @Test
     public void userCanAccessAllLinksInSidebar() {
         logging();
-        inventoryPage.clickOnAtcSLB();
+        inventoryPage.clickOnAtcButton(0);
         Assert.assertTrue(inventoryPage.cartBadge.isDisplayed());
         inventoryPage.clickOnHamburger();
         inventoryPage.clickOnAllItems();

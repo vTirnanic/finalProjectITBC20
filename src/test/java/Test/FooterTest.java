@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class FooterTest extends BaseTest {
 
     String footerText = "© 2024 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy";
-    String twitterURL = "https://x.com/saucelabs";
+    String twitterURL = "https://x.com/saucelabs?mx=2";
     String fbURL = "https://www.facebook.com/saucelabs";
     String linkedInURL = "https://www.linkedin.com/company/sauce-labs/";
 
@@ -38,7 +38,7 @@ public class FooterTest extends BaseTest {
         wait.until(driver -> driver.getWindowHandles().size() > 1);
         ArrayList<String> listaTabova = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(listaTabova.get(1));
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         Assert.assertEquals(driver.getCurrentUrl(),twitterURL);
         driver.close();
         driver.switchTo().window(listaTabova.get(0));
@@ -47,7 +47,7 @@ public class FooterTest extends BaseTest {
         wait.until(driver -> driver.getWindowHandles().size() > 1);
         ArrayList<String> listaTabova2 = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(listaTabova2.get(1));
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         Assert.assertEquals(driver.getCurrentUrl(),fbURL);
         driver.close();
         driver.switchTo().window(listaTabova2.get(0));
@@ -56,7 +56,7 @@ public class FooterTest extends BaseTest {
         wait.until(driver -> driver.getWindowHandles().size() > 1);
         ArrayList<String> listaTabova3 = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(listaTabova3.get(1));
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         Assert.assertEquals(driver.getCurrentUrl(),linkedInURL);
     }
 }

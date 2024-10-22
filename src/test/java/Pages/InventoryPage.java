@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class InventoryPage extends BaseTest {
 
     public InventoryPage() {
@@ -35,14 +37,14 @@ public class InventoryPage extends BaseTest {
     @FindBy(id = "react-burger-cross-btn")
     public WebElement sbCloseIcon;
 
-    @FindBy(id = "item_4_title_link")
-    public WebElement firstItemTitle;
+    @FindBy(css = ".inventory_item_name")
+    public List<WebElement> itemTitleLinks;
 
     @FindBy(css = "span[class='shopping_cart_badge']")
     public WebElement cartBadge;
 
-    @FindBy(id = "add-to-cart-sauce-labs-backpack")
-    public WebElement atcSLB;
+    @FindBy(css = ".btn.btn_primary.btn_small.btn_inventory")
+    public List<WebElement> addToCartButtons;
 
     @FindBy(className = "footer")
     public WebElement footer;
@@ -86,14 +88,6 @@ public class InventoryPage extends BaseTest {
         resetLink.click();
     }
 
-    public void clickOnItemTitle() {
-        firstItemTitle.click();
-    }
-
-    public void clickOnAtcSLB() {
-        atcSLB.click();
-    }
-
     public void clickOnTwiterrIcon() {
         twitterIcon.click();
     }
@@ -110,4 +104,19 @@ public class InventoryPage extends BaseTest {
         cartIcon.click();
     }
 
+    public void openProductPageByTitle(int titleNumber) {
+        if (titleNumber >= 0 && titleNumber < itemTitleLinks.size()) {
+            itemTitleLinks.get(titleNumber).click();
+        } else {
+            System.out.println("Error: titleNumber is out of bounds.");
+        }
+    }
+
+    public void clickOnAtcButton(int buttonNumber) {
+        if (buttonNumber >= 0 && buttonNumber < addToCartButtons.size()) {
+            addToCartButtons.get(buttonNumber).click();
+        } else {
+            System.out.println("Error: buttonNumber is out of bounds.");
+        }
+    }
 }
