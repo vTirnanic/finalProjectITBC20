@@ -4,6 +4,7 @@ import Base.BaseTest;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -64,6 +65,12 @@ public class InventoryPage extends BaseTest {
     @FindBy(id = "shopping_cart_container")
     public WebElement cartIcon;
 
+    @FindBy(className = "product_sort_container")
+    public WebElement sortMenu;
+
+    @FindBy(css = "option[value='za']")
+    public WebElement sortOptionZA;
+
     public void clickOnHamburger() {
         hamburger.click();
     }
@@ -119,4 +126,13 @@ public class InventoryPage extends BaseTest {
             System.out.println("Error: buttonNumber is out of bounds.");
         }
     }
+
+    public void selectSortOption(String sortOptionTitle) {
+        sortMenu.click();
+        Select select = new Select(sortMenu);
+        select.selectByVisibleText(sortOptionTitle);
+    }
+
+
+
 }
