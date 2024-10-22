@@ -48,13 +48,21 @@ public class SortingTest extends BaseTest {
         logging();
         inventoryPage.itemPricesBeforeSorting();
         System.out.println(inventoryPage.itemPricesBeforeSorting());
+        inventoryPage.sortedPricesNO();
+        System.out.println(inventoryPage.sortedPricesNO());
         inventoryPage.selectSortOption("Price (low to high)");
+        inventoryPage.itemPricesAfterSorting();
+        System.out.println(inventoryPage.itemPricesAfterSorting());
+
+
 
     }
 
     @Test
     public void userCanSortItemByPHL() {
         logging();
+        inventoryPage.itemPricesBeforeSorting();
+        System.out.println(inventoryPage.itemPricesBeforeSorting());
         inventoryPage.selectSortOption("Price (high to low)");
     }
 }

@@ -113,7 +113,7 @@ public class InventoryPage extends BaseTest {
         cartIcon.click();
     }
 
-    public void openProductPageByTitle(int titleNumber) {
+    public void openProductPageByTitleNumber(int titleNumber) {
         if (titleNumber >= 0 && titleNumber < itemTitles.size()) {
             itemTitles.get(titleNumber).click();
         } else {
@@ -174,5 +174,44 @@ public class InventoryPage extends BaseTest {
         return itemPricesBS;
     }
 
+    public ArrayList<String> sortedPricesRO() {
+        ArrayList<String> sortedP = new ArrayList<>(itemPricesBeforeSorting());
+        sortedP.sort(Collections.reverseOrder());
+        return sortedP;
+    }
 
+    public ArrayList<String> sortedPricesNO() {
+        ArrayList<String> sortedP = new ArrayList<>(itemPricesBeforeSorting());
+        Collections.sort(sortedP);
+        return sortedP;
+    }
+
+    public ArrayList<String> itemPricesAfterSorting() {
+        ArrayList<String> itemPricesAS = new ArrayList<>();
+
+        for (WebElement it : itemPrices) {
+            itemPricesAS.add(it.getText());
+        }
+        return itemPricesAS;
+    }
+
+    public boolean badgeIsPresent() {
+        boolean bIsPresent = false;
+        try {
+            bIsPresent = inventoryPage.cartBadge.isDisplayed();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return bIsPresent;
+    }
+
+    public boolean sidebarIsPresent() {
+        boolean sbIsPresent = false;
+        try {
+            sbIsPresent = inventoryPage.sideBar.isDisplayed();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return sbIsPresent;
+    }
 }
