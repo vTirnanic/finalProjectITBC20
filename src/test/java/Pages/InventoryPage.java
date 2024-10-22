@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class InventoryPage extends BaseTest {
@@ -39,7 +41,7 @@ public class InventoryPage extends BaseTest {
     public WebElement sbCloseIcon;
 
     @FindBy(css = ".inventory_item_name")
-    public List<WebElement> itemTitleLinks;
+    public List<WebElement> itemTitles;
 
     @FindBy(css = "span[class='shopping_cart_badge']")
     public WebElement cartBadge;
@@ -112,8 +114,8 @@ public class InventoryPage extends BaseTest {
     }
 
     public void openProductPageByTitle(int titleNumber) {
-        if (titleNumber >= 0 && titleNumber < itemTitleLinks.size()) {
-            itemTitleLinks.get(titleNumber).click();
+        if (titleNumber >= 0 && titleNumber < itemTitles.size()) {
+            itemTitles.get(titleNumber).click();
         } else {
             System.out.println("Error: titleNumber is out of bounds.");
         }
@@ -133,6 +135,35 @@ public class InventoryPage extends BaseTest {
         select.selectByVisibleText(sortOptionTitle);
     }
 
+    public List<String> itemTitlesBeforeSorting() {
+        List<String> itemTitlesBS = new ArrayList<>();
+
+        for (WebElement it : itemTitles) {
+            itemTitlesBS.add(it.getText());
+        }
+        return itemTitlesBS;
+    }
+
+    public List<String> sortedTitlesRO() {
+        List<String> sortedT = new ArrayList<>(itemTitlesBeforeSorting());
+        sortedT.sort(Collections.reverseOrder());
+        return sortedT;
+    }
+
+    public List<String> sortedTitlesNO() {
+        List<String> sortedT = new ArrayList<>(itemTitlesBeforeSorting());
+        Collections.sort(sortedT);
+        return sortedT;
+    }
+
+    public List<String> itemTitlesAfterSorting() {
+        List<String> itemTitlesAS = new ArrayList<>();
+
+        for (WebElement it : itemTitles) {
+            itemTitlesAS.add(it.getText());
+        }
+        return itemTitlesAS;
+    }
 
 
 }

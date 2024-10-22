@@ -33,7 +33,7 @@ public class End2EndTest extends BaseTest {
         inventoryPage.openProductPageByTitle(1);
         productPage.clickOnAtcButton();
         driver.navigate().back();
-        scrollToElement(inventoryPage.itemTitleLinks.get(4));
+        scrollToElement(inventoryPage.itemTitles.get(4));
         inventoryPage.openProductPageByTitle(4);
         productPage.clickOnAtcButton();
         driver.navigate().back();
