@@ -135,8 +135,8 @@ public class InventoryPage extends BaseTest {
         select.selectByVisibleText(sortOptionTitle);
     }
 
-    public List<String> itemTitlesBeforeSorting() {
-        List<String> itemTitlesBS = new ArrayList<>();
+    public ArrayList<String> itemTitlesBeforeSorting() {
+        ArrayList<String> itemTitlesBS = new ArrayList<>();
 
         for (WebElement it : itemTitles) {
             itemTitlesBS.add(it.getText());
@@ -144,24 +144,35 @@ public class InventoryPage extends BaseTest {
         return itemTitlesBS;
     }
 
-    public List<String> sortedTitlesRO() {
-        List<String> sortedT = new ArrayList<>(itemTitlesBeforeSorting());
+    public ArrayList<String> sortedTitlesRO() {
+        ArrayList<String> sortedT = new ArrayList<>(itemTitlesBeforeSorting());
         sortedT.sort(Collections.reverseOrder());
         return sortedT;
     }
 
-    public List<String> sortedTitlesNO() {
-        List<String> sortedT = new ArrayList<>(itemTitlesBeforeSorting());
+    public ArrayList<String> sortedTitlesNO() {
+        ArrayList<String> sortedT = new ArrayList<>(itemTitlesBeforeSorting());
         Collections.sort(sortedT);
         return sortedT;
     }
 
-    public List<String> itemTitlesAfterSorting() {
-        List<String> itemTitlesAS = new ArrayList<>();
+    public ArrayList<String> itemTitlesAfterSorting() {
+        ArrayList<String> itemTitlesAS = new ArrayList<>();
 
         for (WebElement it : itemTitles) {
             itemTitlesAS.add(it.getText());
         }
         return itemTitlesAS;
     }
+
+    public ArrayList<String> itemPricesBeforeSorting() {
+        ArrayList<String> itemPricesBS = new ArrayList<>();
+
+        for (WebElement ip : itemPrices) {
+            itemPricesBS.add(ip.getText());
+        }
+        return itemPricesBS;
+    }
+
+
 }
