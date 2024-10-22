@@ -30,7 +30,7 @@ public class SortingTest extends BaseTest {
     }
 
     @Test
-    public void userCanSortItemByNAZ() throws InterruptedException {
+    public void userCanSortItemByNAZ() {
         logging();
         inventoryPage.selectSortOption("Name (Z to A)");
         inventoryPage.itemTitlesBeforeSorting();

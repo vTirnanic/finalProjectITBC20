@@ -70,8 +70,8 @@ public class InventoryPage extends BaseTest {
     @FindBy(className = "product_sort_container")
     public WebElement sortMenu;
 
-    @FindBy(css = "option[value='za']")
-    public WebElement sortOptionZA;
+    @FindBy(className = "inventory_item_price")
+    public List<WebElement> itemPrices;
 
     public void clickOnHamburger() {
         hamburger.click();
@@ -164,6 +164,4 @@ public class InventoryPage extends BaseTest {
         }
         return itemTitlesAS;
     }
-
-
 }
