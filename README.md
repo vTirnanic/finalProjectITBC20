@@ -4,19 +4,19 @@ to November 2024.
 Manual and automated testing of the e-commerce website saucedemo.com with detailed bug reports.
 
 Test Cases
-> TestCases-file
+- TestCases-file
 
 Bug Reports
-> BugReport-file
+- BugReport-file
 
 Automation tests (Selenium)
-> CartTest
-> End2EndTest
-> FooterTest
-> InventorypageTest
-> LoginTest
-> ProductpageTest
-> SidebarTest
-> SortingTest
+- CartTest
+- End2EndTest
+- FooterTest
+- InventorypageTest
+- LoginTest
+- ProductpageTest
+- SidebarTest
+- SortingTest
 
 
