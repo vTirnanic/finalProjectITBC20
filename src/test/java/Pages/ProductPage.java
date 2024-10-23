@@ -32,6 +32,9 @@ public class ProductPage extends BaseTest {
     @FindBy(id = "react-burger-cross-btn")
     public WebElement sbCloseIcon;
 
+    @FindBy(className = "app_logo")
+    public WebElement appLogo;
+
     @FindBy(id = "shopping_cart_container")
     public WebElement cartIcon;
 

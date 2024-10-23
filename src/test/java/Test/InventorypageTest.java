@@ -16,7 +16,7 @@ public class InventorypageTest extends BaseTest {
     }
 
     @Test
-    public void userCanSeeAllInventoryPageElements() {
+    public void userCanSeeAllElementsOnInventoryPage() {
         logging();
         Assert.assertTrue(inventoryPage.hamburger.isDisplayed());
         Assert.assertEquals(inventoryPage.appLogo.getText(),"Swag Labs");
