@@ -41,6 +41,4 @@ public class Checkout1Page extends BaseTest {
     public void clickOnConButton() {
         continueButton.click();
     }
-
-
 }
