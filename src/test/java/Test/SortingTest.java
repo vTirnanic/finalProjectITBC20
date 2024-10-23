@@ -3,16 +3,11 @@ package Test;
 import Base.BaseTest;
 import Pages.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class SortingTest extends BaseTest {
 
@@ -64,92 +59,37 @@ public class SortingTest extends BaseTest {
     public void userCanSortItemByPLH() {
         logging();
 
-        // Dohvatanje cena pre sortiranja kao String vrednosti iz WebElement-a
-        List<String> pricesBeforeSorting = inventoryPage.itemPrices.stream()
-                .map(WebElement::getText) // Dohvati tekst iz svakog WebElement-a
-                .collect(Collectors.toList());
-
-        System.out.println("Prices before sorting: " + pricesBeforeSorting);
-
-        // Konverzija cena iz String u Double, uklanjanje znaka $
-        List<Double> doublePricesBeforeSorting = pricesBeforeSorting.stream()
-                .map(price -> price.replaceAll("[^0-9.]", "")) // Uklanja sve osim brojeva i tačke
-                .map(Double::parseDouble) // Konvertuje u double
-                .collect(Collectors.toList());
-
-        System.out.println("Prices before sorting, doubles: " + doublePricesBeforeSorting);
-
-        // Ručno sortiranje LH za proveru
-        List<Double> doubleSortedPrices = new ArrayList<>(doublePricesBeforeSorting);
-        Collections.sort(doubleSortedPrices); // Sortira cene po principu "low to high"
-
-        System.out.println("Sorted doubles: " + doubleSortedPrices);
-
+        inventoryPage.pricesBeforeSorting();
+        System.out.println("Prices before sorting: " + inventoryPage.pricesBeforeSorting());
+        inventoryPage.pricesBeforeSortingAsDoubles();
+        System.out.println("Prices before sorting, doubles: " + inventoryPage.pricesBeforeSortingAsDoubles());
+        inventoryPage.sortedDoublePricesLowToHigh(inventoryPage.pricesBeforeSortingAsDoubles());
+        System.out.println("Sorted doubles: " + inventoryPage.sortedDoublePricesLowToHigh(inventoryPage.pricesBeforeSortingAsDoubles()));
         inventoryPage.selectSortOption("Price (low to high)");
+        inventoryPage.pricesAfterSorting();
+        System.out.println("Prices after sorting: " + inventoryPage.pricesAfterSorting());
+        inventoryPage.pricesAfterSortingAsDoubles();
+        System.out.println("Prices after sorting, doubles: " + inventoryPage.pricesAfterSortingAsDoubles());
 
-        // Dohvatanje cena nakon sortiranja kao String vrednosti iz WebElement-a
-        List<String> pricesAfterSorting = inventoryPage.itemPrices.stream()
-                .map(WebElement::getText) // Dohvati tekst iz WebElement-a
-                .collect(Collectors.toList());
-
-        // Prikazivanje cena nakon sortiranja
-        System.out.println("Prices after sorting: " + pricesAfterSorting);
-
-        // Konverzija cena nakon sortiranja iz String u Double
-        List<Double> doublePricesAfterSorting = pricesAfterSorting.stream()
-                .map(price -> price.replaceAll("[^0-9.]", "")) // Uklanja $ i konvertuje u double
-                .map(Double::parseDouble)
-                .collect(Collectors.toList());
-
-        System.out.println("Prices after sorting, doubles: " + doublePricesAfterSorting);
-
-        Assert.assertEquals(doublePricesAfterSorting, doubleSortedPrices);
+        Assert.assertEquals(inventoryPage.pricesAfterSortingAsDoubles(), inventoryPage.sortedDoublePricesLowToHigh(inventoryPage.pricesBeforeSortingAsDoubles()));
     }
-
 
     @Test
     public void userCanSortItemByPHL() {
         logging();
 
-        // Dohvatanje cena pre sortiranja kao String vrednosti iz WebElement-a
-        List<String> pricesBeforeSorting = inventoryPage.itemPrices.stream()
-                .map(WebElement::getText) // Dohvati tekst iz svakog WebElement-a
-                .collect(Collectors.toList());
-
-        System.out.println("Prices before sorting: " + pricesBeforeSorting);
-
-        // Konverzija cena iz String u Double, uklanjanje znaka $
-        List<Double> doublePricesBeforeSorting = pricesBeforeSorting.stream()
-                .map(price -> price.replaceAll("[^0-9.]", "")) // Uklanja sve osim brojeva i tačke
-                .map(Double::parseDouble) // Konvertuje u double
-                .collect(Collectors.toList());
-
-        System.out.println("Prices before sorting, doubles: " + doublePricesBeforeSorting);
-
-        // Ručno sortiranje HL za proveru
-        List<Double> doubleSortedPrices = new ArrayList<>(doublePricesBeforeSorting);
-        Collections.sort(doubleSortedPrices, Collections.reverseOrder());  // Sortira cene po principu "high to low"
-
-        System.out.println("Sorted doubles: " + doubleSortedPrices);
-
+        inventoryPage.pricesBeforeSorting();
+        System.out.println("Prices before sorting: " + inventoryPage.pricesBeforeSorting());
+        inventoryPage.pricesBeforeSortingAsDoubles();
+        System.out.println("Prices before sorting, doubles: " + inventoryPage.pricesBeforeSortingAsDoubles());
+        inventoryPage.sortedDoublePricesHighToLow(inventoryPage.pricesBeforeSortingAsDoubles());
+        System.out.println("Sorted doubles: " + inventoryPage.sortedDoublePricesHighToLow(inventoryPage.pricesBeforeSortingAsDoubles()));
         inventoryPage.selectSortOption("Price (high to low)");
+        inventoryPage.pricesAfterSorting();
+        System.out.println("Prices after sorting: " + inventoryPage.pricesAfterSorting());
+        inventoryPage.pricesAfterSortingAsDoubles();
+        System.out.println("Prices after sorting, doubles: " + inventoryPage.pricesAfterSortingAsDoubles());
 
-        // Dohvatanje cena nakon sortiranja kao String vrednosti iz WebElement-a
-        List<String> pricesAfterSorting = inventoryPage.itemPrices.stream()
-                .map(WebElement::getText) // Dohvati tekst iz WebElement-a
-                .collect(Collectors.toList());
-
-        // Prikazivanje cena nakon sortiranja
-        System.out.println("Prices after sorting: " + pricesAfterSorting);
-
-        // Konverzija cena nakon sortiranja iz String u Double
-        List<Double> doublePricesAfterSorting = pricesAfterSorting.stream()
-                .map(price -> price.replaceAll("[^0-9.]", "")) // Uklanja $ i konvertuje u double
-                .map(Double::parseDouble)
-                .collect(Collectors.toList());
-
-        System.out.println("Prices after sorting, doubles: " + doublePricesAfterSorting);
-
-        Assert.assertEquals(doublePricesAfterSorting, doubleSortedPrices);
+        Assert.assertEquals(inventoryPage.pricesAfterSortingAsDoubles(), inventoryPage.sortedDoublePricesHighToLow(inventoryPage.pricesBeforeSortingAsDoubles()));
     }
 }
