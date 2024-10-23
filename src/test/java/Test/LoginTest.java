@@ -22,7 +22,6 @@ public class LoginTest extends BaseTest {
     @Test
     public void userCanLogin() {
         for (int i = 1; i <= excelReader.getLastRow("Sheet1"); i++) {
-
             String validUsername = excelReader.getStringData("Sheet1", i, 0);
             String validPassword = excelReader.getStringData("Sheet1",1,1);
 
@@ -76,7 +75,6 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void userCannotLoginWithBlankUsername() {
-
         String validPassword = excelReader.getStringData("Sheet1",1,1);
 
         homepagePage.inputPassword(validPassword);
@@ -117,7 +115,6 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void userCanLoginWithKeyboard() {
-
         String validUsername = excelReader.getStringData("Sheet1", 1, 0);
         String validPassword = excelReader.getStringData("Sheet1",1,1);
 

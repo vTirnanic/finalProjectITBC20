@@ -34,12 +34,44 @@ public class CartPage extends BaseTest {
     @FindBy(className = "cart_item")
     public List<WebElement> cartItems;
 
+    @FindBy(css = ".btn.btn_secondary.btn_small.cart_button")
+    public List<WebElement> removeButtons;
+
+    @FindBy(className = "inventory_item_name")
+    public List<WebElement> itemTitles;
+
     public void clickOnCheckOutButton() {
         checkOutButton.click();
     }
 
     public void clickOnConShopButton() {
         conShopButton.click();
+    }
+
+    public void clickOnRemoveButton(int buttonNumber) {
+        if (buttonNumber >= 0 && buttonNumber < removeButtons.size()) {
+            removeButtons.get(buttonNumber).click();
+        } else {
+            System.out.println("Error: buttonNumber is out of bounds.");
+        }
+    }
+
+    public boolean cartBadgeIsPresent() {
+        boolean cbbIsPresent = false;
+        try {
+            cbbIsPresent = cartPage.cartBadge.isDisplayed();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return cbbIsPresent;
+    }
+
+    public void clickOnItemTitle(int titleNumber) {
+        if (titleNumber >= 0 && titleNumber < itemTitles.size()) {
+            itemTitles.get(titleNumber).click();
+        } else {
+            System.out.println("Error: titleNumber is out of bounds.");
+        }
     }
 
 }

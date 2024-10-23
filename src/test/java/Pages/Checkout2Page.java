@@ -14,7 +14,14 @@ public class Checkout2Page extends BaseTest {
     @FindBy(id = "finish")
     public WebElement finishButton;
 
+    @FindBy(id = "cancel")
+    public WebElement cancelButton;
+
     public void clickOnFinishButton() {
         finishButton.click();
+    }
+
+    public void clickOnCancelButton() {
+        cancelButton.click();
     }
 }
