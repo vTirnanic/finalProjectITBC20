@@ -38,7 +38,7 @@ public class Checkout1Page extends BaseTest {
         postalCode.sendKeys(pCode);
     }
 
-    public void clickOnConButton() {
+    public void clickOnContinueButton() {
         continueButton.click();
     }
 }

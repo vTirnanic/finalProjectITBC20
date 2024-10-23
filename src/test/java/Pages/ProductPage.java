@@ -97,7 +97,7 @@ public class ProductPage extends BaseTest {
     public boolean badgeIsPresent() {
         boolean bIsPresent = false;
         try {
-            bIsPresent = productPage.cartBadge.isDisplayed();
+            bIsPresent = cartBadge.isDisplayed();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -107,7 +107,7 @@ public class ProductPage extends BaseTest {
     public boolean sidebarIsPresent() {
         boolean sbIsPresent = false;
         try {
-            sbIsPresent = productPage.sideBar.isDisplayed();
+            sbIsPresent = sideBar.isDisplayed();
         } catch (Exception e) {
             System.out.println(e);
         }

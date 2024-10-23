@@ -234,7 +234,7 @@ public class InventoryPage extends BaseTest {
     public boolean badgeIsPresent() {
         boolean bIsPresent = false;
         try {
-            bIsPresent = inventoryPage.cartBadge.isDisplayed();
+            bIsPresent = cartBadge.isDisplayed();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -244,7 +244,7 @@ public class InventoryPage extends BaseTest {
     public boolean sidebarIsPresent() {
         boolean sbIsPresent = false;
         try {
-            sbIsPresent = inventoryPage.sideBar.isDisplayed();
+            sbIsPresent = sideBar.isDisplayed();
         } catch (Exception e) {
             System.out.println(e);
         }

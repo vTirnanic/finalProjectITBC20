@@ -52,14 +52,14 @@ public class CartPage extends BaseTest {
         if (buttonNumber >= 0 && buttonNumber < removeButtons.size()) {
             removeButtons.get(buttonNumber).click();
         } else {
-            System.out.println("Error: buttonNumber is out of bounds.");
+            System.out.println("Error: buttonNumber is out of bounds.Total buttons available: " + removeButtons.size());
         }
     }
 
     public boolean cartBadgeIsPresent() {
         boolean cbbIsPresent = false;
         try {
-            cbbIsPresent = cartPage.cartBadge.isDisplayed();
+            cbbIsPresent = cartBadge.isDisplayed();
         } catch (Exception e) {
             System.out.println(e);
         }

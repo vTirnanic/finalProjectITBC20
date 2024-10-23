@@ -56,7 +56,7 @@ public class End2EndTest extends BaseTest {
         checkout1Page.inputFirstName(firstName);
         checkout1Page.inputLastName(lastName);
         checkout1Page.inputPostalCode(postalCode);
-        checkout1Page.clickOnConButton();
+        checkout1Page.clickOnContinueButton();
         checkout2Page.clickOnFinishButton();
 
         Assert.assertTrue(checkout3Page.backHomeButton.isDisplayed());
