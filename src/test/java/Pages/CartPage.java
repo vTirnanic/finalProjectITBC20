@@ -73,5 +73,4 @@ public class CartPage extends BaseTest {
             System.out.println("Error: titleNumber is out of bounds.");
         }
     }
-
 }
