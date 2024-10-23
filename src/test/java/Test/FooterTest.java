@@ -38,6 +38,7 @@ public class FooterTest extends BaseTest {
     public void userCanSeeFooterCopy() {
         logging();
         scrollToElement(inventoryPage.footer);
+
         Assert.assertEquals(inventoryPage.footerCopy.getText(),footerText);
     }
 
@@ -51,6 +52,7 @@ public class FooterTest extends BaseTest {
         ArrayList<String> listaTabova = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(listaTabova.get(1));
         Thread.sleep(3000);
+
         Assert.assertEquals(driver.getCurrentUrl(),twitterURL);
         driver.close();
         driver.switchTo().window(listaTabova.get(0));
@@ -60,6 +62,7 @@ public class FooterTest extends BaseTest {
         ArrayList<String> listaTabova2 = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(listaTabova2.get(1));
         Thread.sleep(500);
+
         Assert.assertEquals(driver.getCurrentUrl(),fbURL);
         driver.close();
         driver.switchTo().window(listaTabova2.get(0));
@@ -69,6 +72,7 @@ public class FooterTest extends BaseTest {
         ArrayList<String> listaTabova3 = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(listaTabova3.get(1));
         Thread.sleep(500);
+
         Assert.assertEquals(driver.getCurrentUrl(),linkedInURL);
     }
 }

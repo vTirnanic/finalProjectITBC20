@@ -30,6 +30,7 @@ public class InventorypageTest extends BaseTest {
     @Test
     public void userCanSeeAllElementsOnInventoryPage() {
         logging();
+
         Assert.assertTrue(inventoryPage.hamburger.isDisplayed());
         Assert.assertEquals(inventoryPage.appLogo.getText(),"Swag Labs");
         Assert.assertTrue(inventoryPage.cartIcon.isDisplayed());
@@ -53,22 +54,34 @@ public class InventorypageTest extends BaseTest {
     public void userCanAccessProductPage() throws InterruptedException {
         logging();
         inventoryPage.openProductPageByTitleNumber(0);
+
         Assert.assertTrue(productPage.backTPButton.isDisplayed());
+
         productPage.clickOnBackTPButton();
         inventoryPage.openProductPageByTitleNumber(1);
+
         Assert.assertTrue(productPage.backTPButton.isDisplayed());
+
         productPage.clickOnBackTPButton();
         inventoryPage.openProductPageByTitleNumber(2);
+
         Assert.assertTrue(productPage.backTPButton.isDisplayed());
+
         productPage.clickOnBackTPButton();
         inventoryPage.openProductPageByTitleNumber(3);
+
         Assert.assertTrue(productPage.backTPButton.isDisplayed());
+
         productPage.clickOnBackTPButton();
         inventoryPage.openProductPageByTitleNumber(4);
+
         Assert.assertTrue(productPage.backTPButton.isDisplayed());
+
         productPage.clickOnBackTPButton();
         inventoryPage.openProductPageByTitleNumber(5);
+
         Assert.assertTrue(productPage.backTPButton.isDisplayed());
+
         productPage.clickOnBackTPButton();
     }
 }

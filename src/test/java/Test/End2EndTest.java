@@ -58,6 +58,7 @@ public class End2EndTest extends BaseTest {
         checkout1Page.inputPostalCode(postalCode);
         checkout1Page.clickOnConButton();
         checkout2Page.clickOnFinishButton();
+
         Assert.assertTrue(checkout3Page.backHomeButton.isDisplayed());
         Assert.assertEquals(checkout3Page.thanksMessage.getText(), thanksM);
         Assert.assertEquals(checkout3Page.checkOutMessage.getText(),checkOM);

@@ -37,6 +37,7 @@ public class SortingTest extends BaseTest {
         inventoryPage.selectSortOption("Name (Z to A)");
         inventoryPage.itemTitlesAfterSorting();
         System.out.println(inventoryPage.itemTitlesAfterSorting());
+
         Assert.assertEquals(inventoryPage.itemTitlesAfterSorting(),inventoryPage.sortedTitlesRO());
 
     }
@@ -52,6 +53,7 @@ public class SortingTest extends BaseTest {
         inventoryPage.selectSortOption("Name (A to Z)");
         inventoryPage.itemTitlesAfterSorting();
         System.out.println(inventoryPage.itemTitlesAfterSorting());
+
         Assert.assertEquals(inventoryPage.itemTitlesAfterSorting(),inventoryPage.sortedTitlesNO());
     }
 
@@ -61,17 +63,17 @@ public class SortingTest extends BaseTest {
 
         inventoryPage.pricesBeforeSorting();
         System.out.println("Prices before sorting: " + inventoryPage.pricesBeforeSorting());
-        inventoryPage.pricesBeforeSortingAsDoubles();
-        System.out.println("Prices before sorting, doubles: " + inventoryPage.pricesBeforeSortingAsDoubles());
-        inventoryPage.sortedDoublePricesLowToHigh(inventoryPage.pricesBeforeSortingAsDoubles());
-        System.out.println("Sorted doubles: " + inventoryPage.sortedDoublePricesLowToHigh(inventoryPage.pricesBeforeSortingAsDoubles()));
+        inventoryPage.doublePricesBeforeSorting();
+        System.out.println("Prices before sorting, doubles: " + inventoryPage.doublePricesBeforeSorting());
+        inventoryPage.sortedDoublePricesLowToHigh();
+        System.out.println("Sorted doubles: " + inventoryPage.sortedDoublePricesLowToHigh());
         inventoryPage.selectSortOption("Price (low to high)");
         inventoryPage.pricesAfterSorting();
         System.out.println("Prices after sorting: " + inventoryPage.pricesAfterSorting());
-        inventoryPage.pricesAfterSortingAsDoubles();
-        System.out.println("Prices after sorting, doubles: " + inventoryPage.pricesAfterSortingAsDoubles());
+        inventoryPage.doublePricesAfterSorting();
+        System.out.println("Prices after sorting, doubles: " + inventoryPage.doublePricesAfterSorting());
 
-        Assert.assertEquals(inventoryPage.pricesAfterSortingAsDoubles(), inventoryPage.sortedDoublePricesLowToHigh(inventoryPage.pricesBeforeSortingAsDoubles()));
+        Assert.assertEquals(inventoryPage.doublePricesAfterSorting(), inventoryPage.sortedDoublePricesLowToHigh());
     }
 
     @Test
@@ -80,16 +82,16 @@ public class SortingTest extends BaseTest {
 
         inventoryPage.pricesBeforeSorting();
         System.out.println("Prices before sorting: " + inventoryPage.pricesBeforeSorting());
-        inventoryPage.pricesBeforeSortingAsDoubles();
-        System.out.println("Prices before sorting, doubles: " + inventoryPage.pricesBeforeSortingAsDoubles());
-        inventoryPage.sortedDoublePricesHighToLow(inventoryPage.pricesBeforeSortingAsDoubles());
-        System.out.println("Sorted doubles: " + inventoryPage.sortedDoublePricesHighToLow(inventoryPage.pricesBeforeSortingAsDoubles()));
+        inventoryPage.doublePricesBeforeSorting();
+        System.out.println("Prices before sorting, doubles: " + inventoryPage.doublePricesBeforeSorting());
+        inventoryPage.sortedDoublePricesHighToLow();
+        System.out.println("Sorted doubles: " + inventoryPage.sortedDoublePricesHighToLow());
         inventoryPage.selectSortOption("Price (high to low)");
         inventoryPage.pricesAfterSorting();
         System.out.println("Prices after sorting: " + inventoryPage.pricesAfterSorting());
-        inventoryPage.pricesAfterSortingAsDoubles();
-        System.out.println("Prices after sorting, doubles: " + inventoryPage.pricesAfterSortingAsDoubles());
+        inventoryPage.doublePricesAfterSorting();
+        System.out.println("Prices after sorting, doubles: " + inventoryPage.doublePricesAfterSorting());
 
-        Assert.assertEquals(inventoryPage.pricesAfterSortingAsDoubles(), inventoryPage.sortedDoublePricesHighToLow(inventoryPage.pricesBeforeSortingAsDoubles()));
+        Assert.assertEquals(inventoryPage.doublePricesAfterSorting(), inventoryPage.sortedDoublePricesHighToLow());
     }
 }

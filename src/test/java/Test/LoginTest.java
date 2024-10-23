@@ -40,6 +40,7 @@ public class LoginTest extends BaseTest {
             homepagePage.inputUsername(validUsername);
             homepagePage.inputPassword(validPassword);
             homepagePage.clickOnLoginButton();
+
             Assert.assertEquals(driver.getCurrentUrl(),inventoryURL);
             Assert.assertTrue(inventoryPage.cartIcon.isDisplayed());
             driver.navigate().back();
@@ -56,6 +57,7 @@ public class LoginTest extends BaseTest {
             homepagePage.inputUsername(invalidUsername);
             homepagePage.inputPassword(validPassword);
             homepagePage.clickOnLoginButton();
+
             Assert.assertEquals(driver.getCurrentUrl(),homePageURL);
             Assert.assertTrue(homepagePage.loginButton.isDisplayed());
             driver.navigate().refresh();
@@ -72,6 +74,7 @@ public class LoginTest extends BaseTest {
             homepagePage.inputUsername(validUsername);
             homepagePage.inputPassword(invalidPassword);
             homepagePage.clickOnLoginButton();
+
             Assert.assertEquals(driver.getCurrentUrl(),homePageURL);
             Assert.assertTrue(homepagePage.loginButton.isDisplayed());
             driver.navigate().refresh();
@@ -81,6 +84,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void userCannotLoginWithoutCredentials() {
         homepagePage.clickOnLoginButton();
+
         Assert.assertEquals(driver.getCurrentUrl(),homePageURL);
         Assert.assertTrue(homepagePage.loginButton.isDisplayed());
     }
@@ -91,6 +95,7 @@ public class LoginTest extends BaseTest {
 
         homepagePage.inputPassword(validPassword);
         homepagePage.clickOnLoginButton();
+
         Assert.assertEquals(driver.getCurrentUrl(),homePageURL);
         Assert.assertTrue(homepagePage.loginButton.isDisplayed());
     }
@@ -102,6 +107,7 @@ public class LoginTest extends BaseTest {
 
         homepagePage.inputUsername(validUsername);
         homepagePage.clickOnLoginButton();
+
         Assert.assertEquals(driver.getCurrentUrl(),homePageURL);
         Assert.assertTrue(homepagePage.loginButton.isDisplayed());
     }
@@ -111,6 +117,7 @@ public class LoginTest extends BaseTest {
         logging();
         inventoryPage.clickOnHamburger();
         inventoryPage.clickOnLogoutLink();
+
         Assert.assertEquals(driver.getCurrentUrl(),homePageURL);
         Assert.assertTrue(homepagePage.loginButton.isDisplayed());
     }
@@ -121,6 +128,7 @@ public class LoginTest extends BaseTest {
         inventoryPage.openProductPageByTitleNumber(1);
         productPage.clickOnHamburger();
         productPage.clickOnLogoutLink();
+
         Assert.assertEquals(driver.getCurrentUrl(),homePageURL);
         Assert.assertTrue(homepagePage.loginButton.isDisplayed());
     }
@@ -136,6 +144,7 @@ public class LoginTest extends BaseTest {
         homepagePage.inputPassword(validPassword);
         homepagePage.loginButton.sendKeys(Keys.TAB);
         homepagePage.loginButton.sendKeys(Keys.ENTER);
+
         Assert.assertEquals(driver.getCurrentUrl(),inventoryURL);
         Assert.assertTrue(inventoryPage.cartIcon.isDisplayed());
     }
