@@ -177,16 +177,6 @@ public class InventoryPage extends BaseTest {
         return itemTitlesAS;
     }
 
-    public boolean badgeIsPresent() {
-        boolean bIsPresent = false;
-        try {
-            bIsPresent = inventoryPage.cartBadge.isDisplayed();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return bIsPresent;
-    }
-
     public ArrayList<String> pricesBeforeSorting() {
         ArrayList<String> pricesBS = new ArrayList<>();
         for (WebElement ip : itemPrices) {
@@ -195,7 +185,7 @@ public class InventoryPage extends BaseTest {
         return pricesBS;
     }
 
-    public ArrayList<Double> pricesBeforeSortingAsDoubles() {
+    public ArrayList<Double> doublePricesBeforeSorting() {
         ArrayList<Double> doublePricesBS = new ArrayList<>();
 
         ArrayList<String> pricesAsStrings = pricesBeforeSorting();
@@ -208,16 +198,16 @@ public class InventoryPage extends BaseTest {
         return doublePricesBS;
     }
 
-    public ArrayList<Double> sortedDoublePricesLowToHigh(ArrayList<Double> prices) {
-        ArrayList<Double> sortedPrices = new ArrayList<>(prices); // Napravi kopiju liste cena
-        Collections.sort(sortedPrices); // Sortira cene po principu "low to high"
-        return sortedPrices; // Vraća sortiranu listu
+    public ArrayList<Double> sortedDoublePricesLowToHigh() {
+        ArrayList<Double> sortedPricesLTH = new ArrayList<>(doublePricesBeforeSorting()); // Pravi kopiju liste cean
+        Collections.sort(sortedPricesLTH); // Sortira cene po principu "low to high"
+        return sortedPricesLTH;
     }
 
-    public ArrayList<Double> sortedDoublePricesHighToLow(ArrayList<Double> prices) {
-        ArrayList<Double> sortedPrices = new ArrayList<>(prices); // Napravi kopiju liste cena
-        Collections.sort(sortedPrices, Collections.reverseOrder()); // Sortira cene po principu "high to low"
-        return sortedPrices; // Vraća sortiranu listu
+    public ArrayList<Double> sortedDoublePricesHighToLow() {
+        ArrayList<Double> sortedPricesHTL = new ArrayList<>(doublePricesBeforeSorting()); // Napravi kopiju liste cena
+        Collections.sort(sortedPricesHTL, Collections.reverseOrder()); // Sortira cene po principu "high to low"
+        return sortedPricesHTL;
     }
 
     public ArrayList<String> pricesAfterSorting() {
@@ -228,7 +218,7 @@ public class InventoryPage extends BaseTest {
         return pricesAS;
     }
 
-    public ArrayList<Double> pricesAfterSortingAsDoubles() {
+    public ArrayList<Double> doublePricesAfterSorting() {
         ArrayList<Double> doublePricesAS = new ArrayList<>();
 
         ArrayList<String> pricesAsStrings = pricesAfterSorting();
@@ -241,7 +231,15 @@ public class InventoryPage extends BaseTest {
         return doublePricesAS;
     }
 
-
+    public boolean badgeIsPresent() {
+        boolean bIsPresent = false;
+        try {
+            bIsPresent = inventoryPage.cartBadge.isDisplayed();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return bIsPresent;
+    }
 
     public boolean sidebarIsPresent() {
         boolean sbIsPresent = false;

@@ -31,6 +31,7 @@ public class ProductpageTest extends BaseTest {
     public void userCanSeeAllElementsOnProductPage() {
         logging();
         inventoryPage.openProductPageByTitleNumber(0);
+
         Assert.assertTrue(productPage.hamburger.isDisplayed());
         Assert.assertEquals(productPage.appLogo.getText(),"Swag Labs");
         Assert.assertTrue(productPage.cartIcon.isDisplayed());

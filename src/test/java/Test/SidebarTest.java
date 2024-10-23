@@ -38,6 +38,7 @@ public class SidebarTest extends BaseTest {
         inventoryPage.clickOnHamburger();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.elementToBeClickable(inventoryPage.sbCloseIcon));
+
         Assert.assertTrue(inventoryPage.sbCloseIcon.isDisplayed());
 
         inventoryPage.clickOnSbCloseIcon();
