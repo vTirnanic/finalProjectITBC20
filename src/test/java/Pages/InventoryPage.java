@@ -187,6 +187,62 @@ public class InventoryPage extends BaseTest {
         return bIsPresent;
     }
 
+    public ArrayList<String> pricesBeforeSorting() {
+        ArrayList<String> pricesBS = new ArrayList<>();
+        for (WebElement ip : itemPrices) {
+            pricesBS.add(ip.getText());
+        }
+        return pricesBS;
+    }
+
+    public ArrayList<Double> pricesBeforeSortingAsDoubles() {
+        ArrayList<Double> doublePricesBS = new ArrayList<>();
+
+        ArrayList<String> pricesAsStrings = pricesBeforeSorting();
+
+        for (String priceText : pricesAsStrings) {
+            String cleanedPriceText = priceText.replaceAll("[^0-9.]", ""); // Uklanja sve osim brojeva i tačke
+            doublePricesBS.add(Double.parseDouble(cleanedPriceText)); // Konvertuje u double i dodaje u listu
+        }
+
+        return doublePricesBS;
+    }
+
+    public ArrayList<Double> sortedDoublePricesLowToHigh(ArrayList<Double> prices) {
+        ArrayList<Double> sortedPrices = new ArrayList<>(prices); // Napravi kopiju liste cena
+        Collections.sort(sortedPrices); // Sortira cene po principu "low to high"
+        return sortedPrices; // Vraća sortiranu listu
+    }
+
+    public ArrayList<Double> sortedDoublePricesHighToLow(ArrayList<Double> prices) {
+        ArrayList<Double> sortedPrices = new ArrayList<>(prices); // Napravi kopiju liste cena
+        Collections.sort(sortedPrices, Collections.reverseOrder()); // Sortira cene po principu "high to low"
+        return sortedPrices; // Vraća sortiranu listu
+    }
+
+    public ArrayList<String> pricesAfterSorting() {
+        ArrayList<String> pricesAS = new ArrayList<>();
+        for (WebElement ip : itemPrices) {
+            pricesAS.add(ip.getText());
+        }
+        return pricesAS;
+    }
+
+    public ArrayList<Double> pricesAfterSortingAsDoubles() {
+        ArrayList<Double> doublePricesAS = new ArrayList<>();
+
+        ArrayList<String> pricesAsStrings = pricesAfterSorting();
+
+        for (String priceText : pricesAsStrings) {
+            String cleanedPriceText = priceText.replaceAll("[^0-9.]", ""); // Uklanja sve osim brojeva i tačke
+            doublePricesAS.add(Double.parseDouble(cleanedPriceText)); // Konvertuje u double i dodaje u listu
+        }
+
+        return doublePricesAS;
+    }
+
+
+
     public boolean sidebarIsPresent() {
         boolean sbIsPresent = false;
         try {
