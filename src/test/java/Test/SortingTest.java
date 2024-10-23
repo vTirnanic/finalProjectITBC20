@@ -38,7 +38,7 @@ public class SortingTest extends BaseTest {
         inventoryPage.itemTitlesAfterSorting();
         System.out.println(inventoryPage.itemTitlesAfterSorting());
 
-        Assert.assertEquals(inventoryPage.itemTitlesAfterSorting(),inventoryPage.sortedTitlesRO());
+        Assert.assertEquals(inventoryPage.itemTitlesAfterSorting(), inventoryPage.sortedTitlesRO());
 
     }
 
@@ -54,7 +54,7 @@ public class SortingTest extends BaseTest {
         inventoryPage.itemTitlesAfterSorting();
         System.out.println(inventoryPage.itemTitlesAfterSorting());
 
-        Assert.assertEquals(inventoryPage.itemTitlesAfterSorting(),inventoryPage.sortedTitlesNO());
+        Assert.assertEquals(inventoryPage.itemTitlesAfterSorting(), inventoryPage.sortedTitlesNO());
     }
 
     @Test

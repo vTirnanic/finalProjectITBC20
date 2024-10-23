@@ -40,8 +40,8 @@ public class BaseTest {
     }
 
     public void logging() {
-        String validUsername = excelReader.getStringData("Sheet1",1,0);
-        String validPassword = excelReader.getStringData("Sheet1",1,1);
+        String validUsername = excelReader.getStringData("Sheet1", 1, 0);
+        String validPassword = excelReader.getStringData("Sheet1", 1, 1);
 
         homepagePage.inputUsername(validUsername);
         homepagePage.inputPassword(validPassword);

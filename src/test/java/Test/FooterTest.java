@@ -39,7 +39,7 @@ public class FooterTest extends BaseTest {
         logging();
         scrollToElement(inventoryPage.footer);
 
-        Assert.assertEquals(inventoryPage.footerCopy.getText(),footerText);
+        Assert.assertEquals(inventoryPage.footerCopy.getText(), footerText);
     }
 
     @Test
@@ -53,7 +53,7 @@ public class FooterTest extends BaseTest {
         driver.switchTo().window(listaTabova.get(1));
         Thread.sleep(3000);
 
-        Assert.assertEquals(driver.getCurrentUrl(),twitterURL);
+        Assert.assertEquals(driver.getCurrentUrl(), twitterURL);
         driver.close();
         driver.switchTo().window(listaTabova.get(0));
 
@@ -63,7 +63,7 @@ public class FooterTest extends BaseTest {
         driver.switchTo().window(listaTabova2.get(1));
         Thread.sleep(500);
 
-        Assert.assertEquals(driver.getCurrentUrl(),fbURL);
+        Assert.assertEquals(driver.getCurrentUrl(), fbURL);
         driver.close();
         driver.switchTo().window(listaTabova2.get(0));
 
@@ -73,6 +73,6 @@ public class FooterTest extends BaseTest {
         driver.switchTo().window(listaTabova3.get(1));
         Thread.sleep(500);
 
-        Assert.assertEquals(driver.getCurrentUrl(),linkedInURL);
+        Assert.assertEquals(driver.getCurrentUrl(), linkedInURL);
     }
 }

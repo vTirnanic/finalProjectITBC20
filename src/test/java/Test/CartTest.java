@@ -80,8 +80,8 @@ public class CartTest extends BaseTest {
         inventoryPage.clickOnCartIcon();
         cartPage.clickOnConShopButton();
 
-        Assert.assertEquals(driver.getCurrentUrl(),invPageURL);
-        Assert.assertEquals(inventoryPage.cartBadge.getText(),"1");
+        Assert.assertEquals(driver.getCurrentUrl(), invPageURL);
+        Assert.assertEquals(inventoryPage.cartBadge.getText(), "1");
     }
 
     @Test
@@ -93,7 +93,7 @@ public class CartTest extends BaseTest {
 
         Assert.assertTrue(cartPage.cartIcon.isDisplayed());
         Assert.assertTrue(cartPage.cartBadge.isDisplayed());
-        Assert.assertEquals(cartPage.cartBadge.getText(),"1");
+        Assert.assertEquals(cartPage.cartBadge.getText(), "1");
         Assert.assertTrue(cartPage.cartItem.isDisplayed());
     }
 
@@ -108,8 +108,8 @@ public class CartTest extends BaseTest {
 
         Assert.assertTrue(cartPage.cartIcon.isDisplayed());
         Assert.assertTrue(cartPage.cartBadge.isDisplayed());
-        Assert.assertEquals(cartPage.cartBadge.getText(),"3");
-        Assert.assertEquals(cartPage.cartItems.size(),3);
+        Assert.assertEquals(cartPage.cartBadge.getText(), "3");
+        Assert.assertEquals(cartPage.cartItems.size(), 3);
     }
 
     @Test
@@ -154,9 +154,9 @@ public class CartTest extends BaseTest {
 
     @Test
     public void userCanPurchaseOneItem() {
-        String firstName = excelReader.getStringData("Sheet1",1,4);
-        String lastName = excelReader.getStringData("Sheet1",1,5);
-        String postalCode = String.valueOf(excelReader.getIntegerData("Sheet1",1,6));
+        String firstName = excelReader.getStringData("Sheet1", 1, 4);
+        String lastName = excelReader.getStringData("Sheet1", 1, 5);
+        String postalCode = String.valueOf(excelReader.getIntegerData("Sheet1", 1, 6));
 
         logging();
         inventoryPage.openProductPageByTitleNumber(1);
@@ -171,14 +171,14 @@ public class CartTest extends BaseTest {
 
         Assert.assertTrue(checkout3Page.backHomeButton.isDisplayed());
         Assert.assertEquals(checkout3Page.thanksMessage.getText(), thanksM);
-        Assert.assertEquals(checkout3Page.checkOutMessage.getText(),checkOM);
+        Assert.assertEquals(checkout3Page.checkOutMessage.getText(), checkOM);
     }
 
     @Test
     public void userCanPurchaseMultipleItems() throws InterruptedException {
-        String firstName = excelReader.getStringData("Sheet1",1,4);
-        String lastName = excelReader.getStringData("Sheet1",1,5);
-        String postalCode = String.valueOf(excelReader.getIntegerData("Sheet1",1,6));
+        String firstName = excelReader.getStringData("Sheet1", 1, 4);
+        String lastName = excelReader.getStringData("Sheet1", 1, 5);
+        String postalCode = String.valueOf(excelReader.getIntegerData("Sheet1", 1, 6));
 
         logging();
         inventoryPage.clickOnAtcButton(0);
@@ -195,14 +195,14 @@ public class CartTest extends BaseTest {
 
         Assert.assertTrue(checkout3Page.backHomeButton.isDisplayed());
         Assert.assertEquals(checkout3Page.thanksMessage.getText(), thanksM);
-        Assert.assertEquals(checkout3Page.checkOutMessage.getText(),checkOM);
+        Assert.assertEquals(checkout3Page.checkOutMessage.getText(), checkOM);
     }
 
     @Test
     public void userCanCancelCheckoutProcess() throws InterruptedException {
-        String firstName = excelReader.getStringData("Sheet1",1,4);
-        String lastName = excelReader.getStringData("Sheet1",1,5);
-        String postalCode = String.valueOf(excelReader.getIntegerData("Sheet1",1,6));
+        String firstName = excelReader.getStringData("Sheet1", 1, 4);
+        String lastName = excelReader.getStringData("Sheet1", 1, 5);
+        String postalCode = String.valueOf(excelReader.getIntegerData("Sheet1", 1, 6));
 
         logging();
         inventoryPage.clickOnAtcButton(1);
@@ -218,8 +218,8 @@ public class CartTest extends BaseTest {
         scrollToElement(checkout2Page.cancelButton);
         checkout2Page.clickOnCancelButton();
 
-        Assert.assertEquals(driver.getCurrentUrl(),invPageURL);
-        Assert.assertEquals(inventoryPage.cartBadge.getText(),"3");
+        Assert.assertEquals(driver.getCurrentUrl(), invPageURL);
+        Assert.assertEquals(inventoryPage.cartBadge.getText(), "3");
     }
 
     @Test
@@ -228,57 +228,57 @@ public class CartTest extends BaseTest {
         inventoryPage.clickOnAtcButton(0);
         inventoryPage.clickOnCartIcon();
 
-        Assert.assertEquals(cartPage.cartItems.size(),1);
+        Assert.assertEquals(cartPage.cartItems.size(), 1);
 
         cartPage.clickOnConShopButton();
         inventoryPage.clickOnAtcButton(0);
         inventoryPage.clickOnCartIcon();
 
-        Assert.assertEquals(cartPage.cartItems.size(),2);
+        Assert.assertEquals(cartPage.cartItems.size(), 2);
 
         cartPage.clickOnConShopButton();
         inventoryPage.clickOnAtcButton(0);
         inventoryPage.clickOnCartIcon();
 
-        Assert.assertEquals(cartPage.cartItems.size(),3);
+        Assert.assertEquals(cartPage.cartItems.size(), 3);
 
         cartPage.clickOnConShopButton();
         inventoryPage.clickOnAtcButton(0);
         inventoryPage.clickOnCartIcon();
 
-        Assert.assertEquals(cartPage.cartItems.size(),4);
+        Assert.assertEquals(cartPage.cartItems.size(), 4);
 
         cartPage.clickOnConShopButton();
         inventoryPage.clickOnAtcButton(0);
         inventoryPage.clickOnCartIcon();
 
-        Assert.assertEquals(cartPage.cartItems.size(),5);
+        Assert.assertEquals(cartPage.cartItems.size(), 5);
 
         cartPage.clickOnConShopButton();
         inventoryPage.clickOnAtcButton(0);
         inventoryPage.clickOnCartIcon();
 
-        Assert.assertEquals(cartPage.cartItems.size(),6);
+        Assert.assertEquals(cartPage.cartItems.size(), 6);
 
         cartPage.clickOnRemoveButton(0);
 
-        Assert.assertEquals(cartPage.cartItems.size(),5);
+        Assert.assertEquals(cartPage.cartItems.size(), 5);
 
         cartPage.clickOnRemoveButton(0);
 
-        Assert.assertEquals(cartPage.cartItems.size(),4);
+        Assert.assertEquals(cartPage.cartItems.size(), 4);
 
         cartPage.clickOnRemoveButton(0);
 
-        Assert.assertEquals(cartPage.cartItems.size(),3);
+        Assert.assertEquals(cartPage.cartItems.size(), 3);
 
         cartPage.clickOnRemoveButton(0);
 
-        Assert.assertEquals(cartPage.cartItems.size(),2);
+        Assert.assertEquals(cartPage.cartItems.size(), 2);
 
         cartPage.clickOnRemoveButton(0);
 
-        Assert.assertEquals(cartPage.cartItems.size(),1);
+        Assert.assertEquals(cartPage.cartItems.size(), 1);
 
         cartPage.clickOnRemoveButton(0);
 

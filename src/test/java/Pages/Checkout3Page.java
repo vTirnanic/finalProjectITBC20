@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class Checkout3Page extends BaseTest {
 
     public Checkout3Page() {
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(className = "complete-header")

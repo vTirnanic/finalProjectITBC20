@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class HomepagePage extends BaseTest {
 
     public HomepagePage() {
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(id = "user-name")

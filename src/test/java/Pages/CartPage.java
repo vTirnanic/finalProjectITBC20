@@ -10,7 +10,7 @@ import java.util.List;
 public class CartPage extends BaseTest {
 
     public CartPage() {
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(id = "shopping_cart_container")

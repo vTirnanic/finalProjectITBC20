@@ -57,7 +57,7 @@ public class SidebarTest extends BaseTest {
         inventoryPage.clickOnAllItems();
         inventoryPage.clickOnAbout();
 
-        Assert.assertEquals(driver.getCurrentUrl(),aboutURL);
+        Assert.assertEquals(driver.getCurrentUrl(), aboutURL);
 
         driver.navigate().back();
         inventoryPage.clickOnHamburger();
@@ -67,7 +67,7 @@ public class SidebarTest extends BaseTest {
 
         inventoryPage.clickOnLogoutLink();
 
-        Assert.assertEquals(driver.getCurrentUrl(),homePageURL);
+        Assert.assertEquals(driver.getCurrentUrl(), homePageURL);
         Assert.assertTrue(homepagePage.loginButton.isDisplayed());
     }
 
@@ -100,7 +100,7 @@ public class SidebarTest extends BaseTest {
         productPage.clickOnHamburger();
         productPage.clickOnAbout();
 
-        Assert.assertEquals(driver.getCurrentUrl(),aboutURL);
+        Assert.assertEquals(driver.getCurrentUrl(), aboutURL);
 
         driver.navigate().back();
         productPage.clickOnHamburger();
@@ -110,7 +110,7 @@ public class SidebarTest extends BaseTest {
 
         productPage.clickOnLogoutLink();
 
-        Assert.assertEquals(driver.getCurrentUrl(),homePageURL);
+        Assert.assertEquals(driver.getCurrentUrl(), homePageURL);
         Assert.assertTrue(homepagePage.loginButton.isDisplayed());
     }
 }
