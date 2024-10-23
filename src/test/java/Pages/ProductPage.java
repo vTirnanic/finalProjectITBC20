@@ -41,6 +41,21 @@ public class ProductPage extends BaseTest {
     @FindBy(css = "span[class='shopping_cart_badge']")
     public WebElement cartBadge;
 
+    @FindBy(css = ".inventory_details_name.large_size")
+    public WebElement itemTitle;
+
+    @FindBy(className = "inventory_details_img")
+    public WebElement itemImage;
+
+    @FindBy(id = "remove")
+    public WebElement removeButton;
+
+    @FindBy(css = ".inventory_details_desc.large_size")
+    public WebElement itemDescription;
+
+    @FindBy(className = "inventory_details_price")
+    public WebElement itemPrice;
+
     public void clickOnHamburger() {
         hamburger.click();
     }
