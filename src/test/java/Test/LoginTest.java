@@ -29,7 +29,7 @@ public class LoginTest extends BaseTest {
             homepagePage.inputPassword(validPassword);
             homepagePage.clickOnLoginButton();
             Assert.assertEquals(driver.getCurrentUrl(),inventoryURL);
-            Assert.assertTrue(inventoryPage.shoppingCart.isDisplayed());
+            Assert.assertTrue(inventoryPage.cartIcon.isDisplayed());
             driver.navigate().back();
         }
     }
@@ -125,6 +125,6 @@ public class LoginTest extends BaseTest {
         homepagePage.loginButton.sendKeys(Keys.TAB);
         homepagePage.loginButton.sendKeys(Keys.ENTER);
         Assert.assertEquals(driver.getCurrentUrl(),inventoryURL);
-        Assert.assertTrue(inventoryPage.shoppingCart.isDisplayed());
+        Assert.assertTrue(inventoryPage.cartIcon.isDisplayed());
     }
 }

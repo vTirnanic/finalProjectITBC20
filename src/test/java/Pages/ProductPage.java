@@ -56,6 +56,9 @@ public class ProductPage extends BaseTest {
     @FindBy(className = "inventory_details_price")
     public WebElement itemPrice;
 
+    @FindBy(id = "back-to-products")
+    public WebElement backTPButton;
+
     public void clickOnHamburger() {
         hamburger.click();
     }
@@ -106,5 +109,9 @@ public class ProductPage extends BaseTest {
             System.out.println(e);
         }
         return sbIsPresent;
+    }
+
+    public void clickOnBackTPButton() {
+        backTPButton.click();
     }
 }

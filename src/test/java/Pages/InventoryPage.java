@@ -16,9 +16,6 @@ public class InventoryPage extends BaseTest {
         PageFactory.initElements(driver,this);
     }
 
-    @FindBy(id = "shopping_cart_container")
-    public WebElement shoppingCart;
-
     @FindBy(id = "react-burger-menu-btn")
     public WebElement hamburger;
 
@@ -40,11 +37,35 @@ public class InventoryPage extends BaseTest {
     @FindBy(id = "react-burger-cross-btn")
     public WebElement sbCloseIcon;
 
-    @FindBy(css = ".inventory_item_name")
-    public List<WebElement> itemTitles;
+    @FindBy(className = "app_logo")
+    public WebElement appLogo;
+
+    @FindBy(id = "shopping_cart_container")
+    public WebElement cartIcon;
 
     @FindBy(css = "span[class='shopping_cart_badge']")
     public WebElement cartBadge;
+
+    @FindBy(className = "product_sort_container")
+    public WebElement sortMenu;
+
+    @FindBy(className = "title")
+    public WebElement titleProducts;
+
+    @FindBy(className = "inventory_item")
+    public List<WebElement> inventoryItems;
+
+    @FindBy(css = "div[class='inventory_item_img']")
+    public List<WebElement> itemImages;
+
+    @FindBy(css = ".inventory_item_name")
+    public List<WebElement> itemTitles;
+
+    @FindBy(className = "inventory_item_desc")
+    public List<WebElement> itemDescriptions;
+
+    @FindBy(className = "inventory_item_price")
+    public List<WebElement> itemPrices;
 
     @FindBy(css = ".btn.btn_primary.btn_small.btn_inventory")
     public List<WebElement> addToCartButtons;
@@ -63,15 +84,6 @@ public class InventoryPage extends BaseTest {
 
     @FindBy(className = "social_linkedin")
     public WebElement linkedInIcon;
-
-    @FindBy(id = "shopping_cart_container")
-    public WebElement cartIcon;
-
-    @FindBy(className = "product_sort_container")
-    public WebElement sortMenu;
-
-    @FindBy(className = "inventory_item_price")
-    public List<WebElement> itemPrices;
 
     public void clickOnHamburger() {
         hamburger.click();
