@@ -35,13 +35,13 @@ public class LoginTest extends BaseTest {
     public void userCanLogin() {
         for (int i = 1; i <= excelReader.getLastRow("Sheet1"); i++) {
             String validUsername = excelReader.getStringData("Sheet1", i, 0);
-            String validPassword = excelReader.getStringData("Sheet1",1,1);
+            String validPassword = excelReader.getStringData("Sheet1", 1, 1);
 
             homepagePage.inputUsername(validUsername);
             homepagePage.inputPassword(validPassword);
             homepagePage.clickOnLoginButton();
 
-            Assert.assertEquals(driver.getCurrentUrl(),inventoryURL);
+            Assert.assertEquals(driver.getCurrentUrl(), inventoryURL);
             Assert.assertTrue(inventoryPage.cartIcon.isDisplayed());
             driver.navigate().back();
         }
@@ -51,14 +51,14 @@ public class LoginTest extends BaseTest {
     public void userCannotLoginWithInvalidUsername() {
         for (int i = 1; i <= 3; i++) {
 
-            String invalidUsername = excelReader.getStringData("Sheet1",i,2);
-            String validPassword = excelReader.getStringData("Sheet1",1,1);
+            String invalidUsername = excelReader.getStringData("Sheet1", i, 2);
+            String validPassword = excelReader.getStringData("Sheet1", 1, 1);
 
             homepagePage.inputUsername(invalidUsername);
             homepagePage.inputPassword(validPassword);
             homepagePage.clickOnLoginButton();
 
-            Assert.assertEquals(driver.getCurrentUrl(),homePageURL);
+            Assert.assertEquals(driver.getCurrentUrl(), homePageURL);
             Assert.assertTrue(homepagePage.loginButton.isDisplayed());
             driver.navigate().refresh();
         }
@@ -68,14 +68,14 @@ public class LoginTest extends BaseTest {
     public void userCannotLoginWithInvalidPassword() {
         for (int i = 1; i <= 3; i++) {
 
-            String validUsername = excelReader.getStringData("Sheet1",1,0);
-            String invalidPassword = excelReader.getStringData("Sheet1",i,3);
+            String validUsername = excelReader.getStringData("Sheet1", 1, 0);
+            String invalidPassword = excelReader.getStringData("Sheet1", i, 3);
 
             homepagePage.inputUsername(validUsername);
             homepagePage.inputPassword(invalidPassword);
             homepagePage.clickOnLoginButton();
 
-            Assert.assertEquals(driver.getCurrentUrl(),homePageURL);
+            Assert.assertEquals(driver.getCurrentUrl(), homePageURL);
             Assert.assertTrue(homepagePage.loginButton.isDisplayed());
             driver.navigate().refresh();
         }
@@ -85,18 +85,18 @@ public class LoginTest extends BaseTest {
     public void userCannotLoginWithoutCredentials() {
         homepagePage.clickOnLoginButton();
 
-        Assert.assertEquals(driver.getCurrentUrl(),homePageURL);
+        Assert.assertEquals(driver.getCurrentUrl(), homePageURL);
         Assert.assertTrue(homepagePage.loginButton.isDisplayed());
     }
 
     @Test
     public void userCannotLoginWithBlankUsername() {
-        String validPassword = excelReader.getStringData("Sheet1",1,1);
+        String validPassword = excelReader.getStringData("Sheet1", 1, 1);
 
         homepagePage.inputPassword(validPassword);
         homepagePage.clickOnLoginButton();
 
-        Assert.assertEquals(driver.getCurrentUrl(),homePageURL);
+        Assert.assertEquals(driver.getCurrentUrl(), homePageURL);
         Assert.assertTrue(homepagePage.loginButton.isDisplayed());
     }
 
@@ -108,7 +108,7 @@ public class LoginTest extends BaseTest {
         homepagePage.inputUsername(validUsername);
         homepagePage.clickOnLoginButton();
 
-        Assert.assertEquals(driver.getCurrentUrl(),homePageURL);
+        Assert.assertEquals(driver.getCurrentUrl(), homePageURL);
         Assert.assertTrue(homepagePage.loginButton.isDisplayed());
     }
 
@@ -118,7 +118,7 @@ public class LoginTest extends BaseTest {
         inventoryPage.clickOnHamburger();
         inventoryPage.clickOnLogoutLink();
 
-        Assert.assertEquals(driver.getCurrentUrl(),homePageURL);
+        Assert.assertEquals(driver.getCurrentUrl(), homePageURL);
         Assert.assertTrue(homepagePage.loginButton.isDisplayed());
     }
 
@@ -129,14 +129,14 @@ public class LoginTest extends BaseTest {
         productPage.clickOnHamburger();
         productPage.clickOnLogoutLink();
 
-        Assert.assertEquals(driver.getCurrentUrl(),homePageURL);
+        Assert.assertEquals(driver.getCurrentUrl(), homePageURL);
         Assert.assertTrue(homepagePage.loginButton.isDisplayed());
     }
 
     @Test
     public void userCanLoginWithKeyboard() {
         String validUsername = excelReader.getStringData("Sheet1", 1, 0);
-        String validPassword = excelReader.getStringData("Sheet1",1,1);
+        String validPassword = excelReader.getStringData("Sheet1", 1, 1);
 
         homepagePage.usernameField.sendKeys(Keys.TAB);
         homepagePage.inputUsername(validUsername);
@@ -145,7 +145,7 @@ public class LoginTest extends BaseTest {
         homepagePage.loginButton.sendKeys(Keys.TAB);
         homepagePage.loginButton.sendKeys(Keys.ENTER);
 
-        Assert.assertEquals(driver.getCurrentUrl(),inventoryURL);
+        Assert.assertEquals(driver.getCurrentUrl(), inventoryURL);
         Assert.assertTrue(inventoryPage.cartIcon.isDisplayed());
     }
 }

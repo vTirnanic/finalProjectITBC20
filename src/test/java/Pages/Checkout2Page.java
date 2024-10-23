@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class Checkout2Page extends BaseTest {
 
     public Checkout2Page() {
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(id = "finish")

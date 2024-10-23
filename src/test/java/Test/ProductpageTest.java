@@ -33,7 +33,7 @@ public class ProductpageTest extends BaseTest {
         inventoryPage.openProductPageByTitleNumber(0);
 
         Assert.assertTrue(productPage.hamburger.isDisplayed());
-        Assert.assertEquals(productPage.appLogo.getText(),"Swag Labs");
+        Assert.assertEquals(productPage.appLogo.getText(), "Swag Labs");
         Assert.assertTrue(productPage.cartIcon.isDisplayed());
         Assert.assertTrue(productPage.backTPButton.isDisplayed());
         Assert.assertTrue(productPage.itemImage.isDisplayed());
@@ -45,7 +45,7 @@ public class ProductpageTest extends BaseTest {
         Assert.assertTrue(inventoryPage.twitterIcon.isDisplayed());
         Assert.assertTrue(inventoryPage.facebookIcon.isDisplayed());
         Assert.assertTrue(inventoryPage.linkedInIcon.isDisplayed());
-        Assert.assertEquals(inventoryPage.footerCopy.getText(),"© 2024 Sauce Labs. All Rights Reserved. " +
+        Assert.assertEquals(inventoryPage.footerCopy.getText(), "© 2024 Sauce Labs. All Rights Reserved. " +
                 "Terms of Service | Privacy Policy");
     }
 }

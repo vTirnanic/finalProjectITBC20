@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class ProductPage extends BaseTest {
 
     public ProductPage() {
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(id = "react-burger-menu-btn")

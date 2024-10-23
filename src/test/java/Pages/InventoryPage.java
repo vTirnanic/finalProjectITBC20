@@ -13,7 +13,7 @@ import java.util.List;
 public class InventoryPage extends BaseTest {
 
     public InventoryPage() {
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(id = "react-burger-menu-btn")

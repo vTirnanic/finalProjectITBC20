@@ -30,9 +30,9 @@ public class End2EndTest extends BaseTest {
     @Test
     public void endToEndTest() throws InterruptedException {
 
-        String firstName = excelReader.getStringData("Sheet1",1,4);
-        String lastName = excelReader.getStringData("Sheet1",1,5);
-        String postalCode = String.valueOf(excelReader.getIntegerData("Sheet1",1,6));
+        String firstName = excelReader.getStringData("Sheet1", 1, 4);
+        String lastName = excelReader.getStringData("Sheet1", 1, 5);
+        String postalCode = String.valueOf(excelReader.getIntegerData("Sheet1", 1, 6));
         String thanksM = "Thank you for your order!";
         String checkOM = "Checkout: Complete!";
 
@@ -61,6 +61,6 @@ public class End2EndTest extends BaseTest {
 
         Assert.assertTrue(checkout3Page.backHomeButton.isDisplayed());
         Assert.assertEquals(checkout3Page.thanksMessage.getText(), thanksM);
-        Assert.assertEquals(checkout3Page.checkOutMessage.getText(),checkOM);
+        Assert.assertEquals(checkout3Page.checkOutMessage.getText(), checkOM);
     }
 }
