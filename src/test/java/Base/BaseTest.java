@@ -29,18 +29,8 @@ public class BaseTest {
     @BeforeClass
     public void setUp() throws IOException {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
 
         excelReader = new ExcelReader("Credentials.xlsx");
-
-        homepagePage = new HomepagePage();
-        inventoryPage = new InventoryPage();
-        productPage = new ProductPage();
-        cartPage = new CartPage();
-        checkout1Page = new Checkout1Page();
-        checkout2Page = new Checkout2Page();
-        checkout3Page = new Checkout3Page();
     }
 
     public void scrollToElement(WebElement element) {

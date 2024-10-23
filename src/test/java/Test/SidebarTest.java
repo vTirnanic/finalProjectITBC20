@@ -1,6 +1,8 @@
 package Test;
 
 import Base.BaseTest;
+import Pages.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -16,8 +18,18 @@ public class SidebarTest extends BaseTest {
 
     @BeforeMethod
     public void pageSetUp() {
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.navigate().to("https://www.saucedemo.com/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+        homepagePage = new HomepagePage();
+        inventoryPage = new InventoryPage();
+        productPage = new ProductPage();
+        cartPage = new CartPage();
+        checkout1Page = new Checkout1Page();
+        checkout2Page = new Checkout2Page();
+        checkout3Page = new Checkout3Page();
     }
 
     @Test
