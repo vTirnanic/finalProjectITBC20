@@ -1,8 +1,6 @@
 package Test;
 
 import Base.BaseTest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -22,12 +20,33 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void userCanOpenCartFromInvPage() {
+    public void userCanOpenCartFromInventoryPage() {
         logging();
         inventoryPage.clickOnCartIcon();
+        Assert.assertTrue(cartPage.cartIcon.isDisplayed());
+        Assert.assertFalse(cartPage.cartBadgeIsPresent());
+        Assert.assertTrue(cartPage.checkOutButton.isDisplayed());
         driver.navigate().back();
         inventoryPage.clickOnAtcButton(1);
         inventoryPage.clickOnCartIcon();
+        Assert.assertTrue(cartPage.cartIcon.isDisplayed());
+        Assert.assertTrue(cartPage.cartBadge.isDisplayed());
+        Assert.assertTrue(cartPage.quantityCell.isDisplayed());
+        Assert.assertTrue(cartPage.checkOutButton.isDisplayed());
+    }
+
+    @Test
+    public void userCanOpenCartFromProductPage() {
+        logging();
+        inventoryPage.openProductPageByTitleNumber(0);
+        productPage.clickOnCartIcon();
+        Assert.assertTrue(cartPage.cartIcon.isDisplayed());
+        Assert.assertFalse(cartPage.cartBadgeIsPresent());
+        Assert.assertTrue(cartPage.checkOutButton.isDisplayed());
+        cartPage.clickOnConShopButton();
+        inventoryPage.openProductPageByTitleNumber(0);
+        productPage.clickOnAtcButton();
+        productPage.clickOnCartIcon();
         Assert.assertTrue(cartPage.cartIcon.isDisplayed());
         Assert.assertTrue(cartPage.cartBadge.isDisplayed());
         Assert.assertTrue(cartPage.quantityCell.isDisplayed());
@@ -98,7 +117,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void userCanAccessToProductDetails() {
+    public void userCanAccessToProductDetailsFromCart() {
         logging();
         inventoryPage.clickOnAtcButton(1);
         inventoryPage.clickOnCartIcon();
