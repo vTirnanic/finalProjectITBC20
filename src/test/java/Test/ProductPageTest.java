@@ -1,35 +1,14 @@
 package Test;
 
 import Base.BaseTest;
-import Pages.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
-
-public class ProductpageTest extends BaseTest {
-
-    @BeforeMethod
-    public void pageSetUp() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.navigate().to("https://www.saucedemo.com/");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
-        homepagePage = new HomepagePage();
-        inventoryPage = new InventoryPage();
-        productPage = new ProductPage();
-        cartPage = new CartPage();
-        checkout1Page = new Checkout1Page();
-        checkout2Page = new Checkout2Page();
-        checkout3Page = new Checkout3Page();
-    }
+public class ProductPageTest extends BaseTest {
 
     @Test
     public void userCanSeeAllElementsOnProductPage() {
-        logging();
+        logIn();
         inventoryPage.openProductPageByTitleNumber(0);
 
         Assert.assertTrue(productPage.hamburger.isDisplayed());

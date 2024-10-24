@@ -1,35 +1,14 @@
 package Test;
 
 import Base.BaseTest;
-import Pages.*;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 
 public class LoginTest extends BaseTest {
 
     String homePageURL = "https://www.saucedemo.com/";
     String inventoryURL = "https://www.saucedemo.com/inventory.html";
-
-    @BeforeMethod
-    public void pageSetUp() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.navigate().to("https://www.saucedemo.com/");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
-        homepagePage = new HomepagePage();
-        inventoryPage = new InventoryPage();
-        productPage = new ProductPage();
-        cartPage = new CartPage();
-        checkout1Page = new Checkout1Page();
-        checkout2Page = new Checkout2Page();
-        checkout3Page = new Checkout3Page();
-    }
 
     @Test
     public void userCanLogin() {
@@ -40,10 +19,24 @@ public class LoginTest extends BaseTest {
             homepagePage.inputUsername(validUsername);
             homepagePage.inputPassword(validPassword);
             homepagePage.clickOnLoginButton();
+            /*
+            try {
+                Assert.assertEquals(driver.getCurrentUrl(), inventoryURL);
+            } catch (AssertionError e) {
+                System.out.println("invalid username: " + validUsername);
+                throw e;
+            }
+             */
 
-            Assert.assertEquals(driver.getCurrentUrl(), inventoryURL);
+            if (!inventoryURL.equals(driver.getCurrentUrl())) {
+                Assert.fail("invalid username: " + validUsername + " or password: "+ validPassword);
+            } else {
+                System.out.println("URL is changed, as expected.");
+            }
+
             Assert.assertTrue(inventoryPage.cartIcon.isDisplayed());
             driver.navigate().back();
+
         }
     }
 
@@ -83,6 +76,9 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void userCannotLoginWithoutCredentials() {
+        Assert.assertTrue(homepagePage.usernameField.getText().isBlank());
+        Assert.assertTrue(homepagePage.passwordField.getText().isBlank());
+
         homepagePage.clickOnLoginButton();
 
         Assert.assertEquals(driver.getCurrentUrl(), homePageURL);
@@ -114,7 +110,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void userCanLogutFromInvPage() {
-        logging();
+        logIn();
         inventoryPage.clickOnHamburger();
         inventoryPage.clickOnLogoutLink();
 
@@ -124,7 +120,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void userCanLogoutFromProductPage() {
-        logging();
+        logIn();
         inventoryPage.openProductPageByTitleNumber(1);
         productPage.clickOnHamburger();
         productPage.clickOnLogoutLink();

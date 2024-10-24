@@ -1,12 +1,9 @@
 package Test;
 
 import Base.BaseTest;
-import Pages.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -16,25 +13,9 @@ public class SidebarTest extends BaseTest {
     String homePageURL = "https://www.saucedemo.com/";
     String aboutURL = "https://saucelabs.com/";
 
-    @BeforeMethod
-    public void pageSetUp() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.navigate().to("https://www.saucedemo.com/");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
-        homepagePage = new HomepagePage();
-        inventoryPage = new InventoryPage();
-        productPage = new ProductPage();
-        cartPage = new CartPage();
-        checkout1Page = new Checkout1Page();
-        checkout2Page = new Checkout2Page();
-        checkout3Page = new Checkout3Page();
-    }
-
     @Test
     public void userCanOpenAndCloseSbFromInvPage() throws InterruptedException {
-        logging();
+        logIn();
         inventoryPage.clickOnHamburger();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.elementToBeClickable(inventoryPage.sbCloseIcon));
@@ -48,7 +29,7 @@ public class SidebarTest extends BaseTest {
 
     @Test
     public void userCanAccessAllLinksInSidebarFromInvPage() {
-        logging();
+        logIn();
         inventoryPage.clickOnAtcButton(0);
 
         Assert.assertTrue(inventoryPage.cartBadge.isDisplayed());
@@ -73,7 +54,7 @@ public class SidebarTest extends BaseTest {
 
     @Test
     public void userCanOpenAndCloseSbFromProdPage() throws InterruptedException {
-        logging();
+        logIn();
         inventoryPage.openProductPageByTitleNumber(1);
         productPage.clickOnHamburger();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -88,7 +69,7 @@ public class SidebarTest extends BaseTest {
 
     @Test
     public void userCanAccessAllLinksInSidebarFromProdPage() {
-        logging();
+        logIn();
         inventoryPage.openProductPageByTitleNumber(2);
         productPage.clickOnAtcButton();
 
