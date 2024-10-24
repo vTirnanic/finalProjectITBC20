@@ -1,11 +1,8 @@
 package Test;
 
 import Base.BaseTest;
-import Pages.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -18,25 +15,9 @@ public class FooterTest extends BaseTest {
     String fbURL = "https://www.facebook.com/saucelabs";
     String linkedInURL = "https://www.linkedin.com/company/sauce-labs/";
 
-    @BeforeMethod
-    public void pageSetUp() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.navigate().to("https://www.saucedemo.com/");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
-        homepagePage = new HomepagePage();
-        inventoryPage = new InventoryPage();
-        productPage = new ProductPage();
-        cartPage = new CartPage();
-        checkout1Page = new Checkout1Page();
-        checkout2Page = new Checkout2Page();
-        checkout3Page = new Checkout3Page();
-    }
-
     @Test
     public void userCanSeeFooterCopy() {
-        logging();
+        logIn();
         scrollToElement(inventoryPage.footer);
 
         Assert.assertEquals(inventoryPage.footerCopy.getText(), footerText);
@@ -44,7 +25,7 @@ public class FooterTest extends BaseTest {
 
     @Test
     public void userCanAccessFooterLinks() throws InterruptedException {
-        logging();
+        logIn();
         scrollToElement(inventoryPage.footer);
         inventoryPage.clickOnTwiterrIcon();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
