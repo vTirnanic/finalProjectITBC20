@@ -13,30 +13,22 @@ public class LoginTest extends BaseTest {
     @Test
     public void userCanLogin() {
         for (int i = 1; i <= excelReader.getLastRow("Sheet1"); i++) {
-            String validUsername = excelReader.getStringData("Sheet1", i, 0);
-            String validPassword = excelReader.getStringData("Sheet1", 1, 1);
+            String username = excelReader.getStringData("Sheet1", i, 0);
+            String password = excelReader.getStringData("Sheet1", 1, 1);
 
-            homepagePage.inputUsername(validUsername);
-            homepagePage.inputPassword(validPassword);
+            homepagePage.inputUsername(username);
+            homepagePage.inputPassword(password);
             homepagePage.clickOnLoginButton();
-            /*
-            try {
-                Assert.assertEquals(driver.getCurrentUrl(), inventoryURL);
-            } catch (AssertionError e) {
-                System.out.println("invalid username: " + validUsername);
-                throw e;
-            }
-             */
 
             if (!inventoryURL.equals(driver.getCurrentUrl())) {
-                Assert.fail("invalid username: " + validUsername + " or password: "+ validPassword);
+                System.out.println("invalid username: " + username + " or invalid password: "+ password);
             } else {
                 System.out.println("URL is changed, as expected.");
             }
 
+            Assert.assertEquals(driver.getCurrentUrl(),inventoryURL);
             Assert.assertTrue(inventoryPage.cartIcon.isDisplayed());
             driver.navigate().back();
-
         }
     }
 
