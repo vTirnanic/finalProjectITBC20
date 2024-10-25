@@ -50,9 +50,6 @@ public class ProductPage extends BaseTest {
     @FindBy(className = "inventory_details_img")
     public WebElement itemImage;
 
-    @FindBy(id = "remove")
-    public WebElement removeButton;
-
     @FindBy(css = ".inventory_details_desc.large_size")
     public WebElement itemDescription;
 
@@ -119,26 +116,6 @@ public class ProductPage extends BaseTest {
 
     public void clickOnLinkedInIcon() {
         linkedInIcon.click();
-    }
-
-    public boolean badgeIsPresent() {
-        boolean bIsPresent = false;
-        try {
-            bIsPresent = cartBadge.isDisplayed();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return bIsPresent;
-    }
-
-    public boolean sidebarIsPresent() {
-        boolean sbIsPresent = false;
-        try {
-            sbIsPresent = sideBar.isDisplayed();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return sbIsPresent;
     }
 
     public void clickOnBackTPButton() {

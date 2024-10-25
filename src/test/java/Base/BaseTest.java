@@ -66,10 +66,19 @@ public class BaseTest {
         homepagePage.inputPassword(validPassword);
         homepagePage.clickOnLoginButton();
     }
-/*
+
+    public boolean elementIsDisplayed(WebElement element) {
+        boolean isDisplayed  = false;
+        try {
+            isDisplayed = element.isDisplayed();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return isDisplayed;
+    }
+
     @AfterMethod
     public void tearDown() {
         driver.quit();
     }
- */
 }

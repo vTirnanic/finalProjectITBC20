@@ -24,7 +24,7 @@ public class SidebarTest extends BaseTest {
 
         inventoryPage.clickOnSbCloseIcon();
 
-        Assert.assertFalse(inventoryPage.sidebarIsPresent());
+        Assert.assertFalse(elementIsDisplayed(inventoryPage.sideBar));
     }
 
     @Test
@@ -44,7 +44,7 @@ public class SidebarTest extends BaseTest {
         inventoryPage.clickOnHamburger();
         inventoryPage.clickOnReset();
 
-        Assert.assertFalse(inventoryPage.badgeIsPresent());
+        Assert.assertFalse(elementIsDisplayed(inventoryPage.cartBadge));
 
         inventoryPage.clickOnLogoutLink();
 
@@ -64,7 +64,7 @@ public class SidebarTest extends BaseTest {
 
         productPage.clickOnSbCloseIcon();
 
-        Assert.assertFalse(productPage.sidebarIsPresent());
+        Assert.assertFalse(elementIsDisplayed(productPage.sideBar));
     }
 
     @Test
@@ -87,7 +87,7 @@ public class SidebarTest extends BaseTest {
         productPage.clickOnHamburger();
         productPage.clickOnReset();
 
-        Assert.assertFalse(productPage.badgeIsPresent());
+        Assert.assertFalse(elementIsDisplayed(productPage.cartBadge));
 
         productPage.clickOnLogoutLink();
 

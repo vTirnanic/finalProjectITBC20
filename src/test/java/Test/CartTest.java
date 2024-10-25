@@ -15,7 +15,7 @@ public class CartTest extends BaseTest {
         inventoryPage.clickOnCartIcon();
 
         Assert.assertTrue(cartPage.cartIcon.isDisplayed());
-        Assert.assertFalse(cartPage.cartBadgeIsPresent());
+        Assert.assertFalse(cartPage.elementIsDisplayed(cartPage.cartBadge));
         Assert.assertTrue(cartPage.checkOutButton.isDisplayed());
 
         driver.navigate().back();
@@ -35,7 +35,7 @@ public class CartTest extends BaseTest {
         productPage.clickOnCartIcon();
 
         Assert.assertTrue(cartPage.cartIcon.isDisplayed());
-        Assert.assertFalse(cartPage.cartBadgeIsPresent());
+        Assert.assertFalse(elementIsDisplayed(cartPage.cartBadge));
         Assert.assertTrue(cartPage.checkOutButton.isDisplayed());
 
         cartPage.clickOnConShopButton();
@@ -65,7 +65,7 @@ public class CartTest extends BaseTest {
     @Test
     public void userCanAddOneItemToCart() {
         logIn();
-        Assert.assertFalse(inventoryPage.badgeIsPresent());
+        Assert.assertFalse(elementIsDisplayed(inventoryPage.cartBadge));
         inventoryPage.clickOnAtcButton(2);
         inventoryPage.clickOnCartIcon();
 
@@ -98,7 +98,7 @@ public class CartTest extends BaseTest {
         cartPage.clickOnRemoveButton(0);
 
         Assert.assertTrue(cartPage.cartIcon.isDisplayed());
-        Assert.assertFalse(cartPage.cartBadgeIsPresent());
+        Assert.assertFalse(elementIsDisplayed(cartPage.cartBadge));
     }
 
     @Test
@@ -114,7 +114,7 @@ public class CartTest extends BaseTest {
         cartPage.clickOnRemoveButton(0);
 
         Assert.assertTrue(cartPage.cartIcon.isDisplayed());
-        Assert.assertFalse(cartPage.cartBadgeIsPresent());
+        Assert.assertFalse(elementIsDisplayed(cartPage.cartBadge));
     }
 
     @Test
@@ -260,7 +260,7 @@ public class CartTest extends BaseTest {
 
         cartPage.clickOnRemoveButton(0);
 
-        Assert.assertFalse(cartPage.cartBadgeIsPresent());
+        Assert.assertFalse(elementIsDisplayed(cartPage.cartBadge));
 
         //TODO: Test - sum of prices
     }

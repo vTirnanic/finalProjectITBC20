@@ -56,16 +56,6 @@ public class CartPage extends BaseTest {
         }
     }
 
-    public boolean cartBadgeIsPresent() {
-        boolean cbbIsPresent = false;
-        try {
-            cbbIsPresent = cartBadge.isDisplayed();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return cbbIsPresent;
-    }
-
     public void clickOnItemTitle(int titleNumber) {
         if (titleNumber >= 0 && titleNumber < itemTitles.size()) {
             itemTitles.get(titleNumber).click();
