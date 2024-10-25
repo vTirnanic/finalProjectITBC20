@@ -16,7 +16,7 @@ public class FooterTest extends BaseTest {
     String linkedInURL = "https://www.linkedin.com/company/sauce-labs/";
 
     @Test
-    public void userCanSeeFooterCopy() {
+    public void userCanSeeFooterCopyOnInventoryPage() {
         logIn();
         scrollToElement(inventoryPage.footer);
 
@@ -24,7 +24,7 @@ public class FooterTest extends BaseTest {
     }
 
     @Test
-    public void userCanAccessFooterLinks() throws InterruptedException {
+    public void userCanAccessFooterLinksOnInventoryPage() throws InterruptedException {
         logIn();
         scrollToElement(inventoryPage.footer);
         inventoryPage.clickOnTwiterrIcon();
@@ -49,6 +49,50 @@ public class FooterTest extends BaseTest {
         driver.switchTo().window(listaTabova2.get(0));
 
         inventoryPage.clickOnLinkedInIcon();
+        wait.until(driver -> driver.getWindowHandles().size() > 1);
+        ArrayList<String> listaTabova3 = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(listaTabova3.get(1));
+        Thread.sleep(500);
+
+        Assert.assertEquals(driver.getCurrentUrl(), linkedInURL);
+    }
+
+    @Test
+    public void userCanSeeFooterCopyOnProductPage() {
+        logIn();
+        inventoryPage.openProductPageByTitleNumber(0);
+        scrollToElement(productPage.footer);
+
+        Assert.assertEquals(productPage.footerCopy.getText(), footerText);
+    }
+
+    @Test
+    public void userCanAccessFooterLinksOnProductPage() throws InterruptedException {
+        logIn();
+        inventoryPage.openProductPageByTitleNumber(0);
+        scrollToElement(productPage.footer);
+        productPage.clickOnTwiterrIcon();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(driver -> driver.getWindowHandles().size() > 1);
+        ArrayList<String> listaTabova = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(listaTabova.get(1));
+        Thread.sleep(3000);
+
+        Assert.assertEquals(driver.getCurrentUrl(), twitterURL);
+        driver.close();
+        driver.switchTo().window(listaTabova.get(0));
+
+        productPage.clickOnFbIcon();
+        wait.until(driver -> driver.getWindowHandles().size() > 1);
+        ArrayList<String> listaTabova2 = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(listaTabova2.get(1));
+        Thread.sleep(500);
+
+        Assert.assertEquals(driver.getCurrentUrl(), fbURL);
+        driver.close();
+        driver.switchTo().window(listaTabova2.get(0));
+
+        productPage.clickOnLinkedInIcon();
         wait.until(driver -> driver.getWindowHandles().size() > 1);
         ArrayList<String> listaTabova3 = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(listaTabova3.get(1));

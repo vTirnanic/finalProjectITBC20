@@ -14,7 +14,7 @@ public class SidebarTest extends BaseTest {
     String aboutURL = "https://saucelabs.com/";
 
     @Test
-    public void userCanOpenAndCloseSbFromInvPage() throws InterruptedException {
+    public void userCanOpenAndCloseSidebarOnInventoryPage() throws InterruptedException {
         logIn();
         inventoryPage.clickOnHamburger();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -28,7 +28,7 @@ public class SidebarTest extends BaseTest {
     }
 
     @Test
-    public void userCanAccessAllLinksInSidebarFromInvPage() {
+    public void userCanAccessAllLinksInSidebarOnInventoryPage() {
         logIn();
         inventoryPage.clickOnAtcButton(0);
 
@@ -53,7 +53,7 @@ public class SidebarTest extends BaseTest {
     }
 
     @Test
-    public void userCanOpenAndCloseSbFromProdPage() throws InterruptedException {
+    public void userCanOpenAndCloseSidebarOnProductPage() throws InterruptedException {
         logIn();
         inventoryPage.openProductPageByTitleNumber(1);
         productPage.clickOnHamburger();
@@ -68,7 +68,7 @@ public class SidebarTest extends BaseTest {
     }
 
     @Test
-    public void userCanAccessAllLinksInSidebarFromProdPage() {
+    public void userCanAccessAllLinksInSidebarOnProductPage() {
         logIn();
         inventoryPage.openProductPageByTitleNumber(2);
         productPage.clickOnAtcButton();

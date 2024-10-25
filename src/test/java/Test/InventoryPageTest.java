@@ -30,7 +30,7 @@ public class InventoryPageTest extends BaseTest {
     }
 
     @Test
-    public void userCanAccessProductPage() throws InterruptedException {
+    public void userCanAccessProductPage() {
         logIn();
         inventoryPage.openProductPageByTitleNumber(0);
 
