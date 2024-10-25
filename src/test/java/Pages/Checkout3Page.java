@@ -22,14 +22,4 @@ public class Checkout3Page extends BaseTest {
 
     @FindBy(css = "span[class='shopping_cart_badge']")
     public WebElement cartBadge;
-
-    public boolean cartBadgeIsPresent() {
-        boolean cbbIsPresent = false;
-        try {
-            cbbIsPresent = cartBadge.isDisplayed();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return cbbIsPresent;
-    }
 }

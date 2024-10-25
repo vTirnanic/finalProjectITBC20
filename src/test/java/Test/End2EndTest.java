@@ -42,6 +42,6 @@ public class End2EndTest extends BaseTest {
         Assert.assertTrue(checkout3Page.backHomeButton.isDisplayed());
         Assert.assertEquals(checkout3Page.thanksMessage.getText(), thanksM);
         Assert.assertEquals(checkout3Page.checkOutMessage.getText(), checkOM);
-        Assert.assertFalse(checkout3Page.cartBadgeIsPresent());
+        Assert.assertFalse(elementIsDisplayed(checkout3Page.cartBadge));
     }
 }

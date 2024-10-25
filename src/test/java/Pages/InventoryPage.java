@@ -230,24 +230,4 @@ public class InventoryPage extends BaseTest {
 
         return doublePricesAS;
     }
-
-    public boolean badgeIsPresent() {
-        boolean bIsPresent = false;
-        try {
-            bIsPresent = cartBadge.isDisplayed();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return bIsPresent;
-    }
-
-    public boolean sidebarIsPresent() {
-        boolean sbIsPresent = false;
-        try {
-            sbIsPresent = sideBar.isDisplayed();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return sbIsPresent;
-    }
 }
