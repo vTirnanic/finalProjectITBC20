@@ -262,6 +262,6 @@ public class CartTest extends BaseTest {
 
         Assert.assertFalse(cartPage.cartBadgeIsPresent());
 
-        //TODO: Test ukupne cene
+        //TODO: Test - sum of prices
     }
 }

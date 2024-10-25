@@ -19,17 +19,19 @@ public class End2EndTest extends BaseTest {
         inventoryPage.clickOnAtcButton(1);
         inventoryPage.openProductPageByTitleNumber(3);
         productPage.clickOnAtcButton();
-        driver.navigate().back();
+        productPage.clickOnBackTPButton();
         inventoryPage.openProductPageByTitleNumber(1);
         productPage.clickOnAtcButton();
-        driver.navigate().back();
+        productPage.clickOnBackTPButton();
         scrollToElement(inventoryPage.itemTitles.get(4));
         inventoryPage.openProductPageByTitleNumber(4);
         productPage.clickOnAtcButton();
-        driver.navigate().back();
+        productPage.clickOnBackTPButton();
         inventoryPage.openProductPageByTitleNumber(5);
         productPage.clickOnAtcButton();
         productPage.clickOnCartIcon();
+        cartPage.clickOnRemoveButton(0);
+        cartPage.clickOnRemoveButton(0);
         cartPage.clickOnCheckOutButton();
         checkout1Page.inputFirstName(firstName);
         checkout1Page.inputLastName(lastName);
@@ -40,7 +42,6 @@ public class End2EndTest extends BaseTest {
         Assert.assertTrue(checkout3Page.backHomeButton.isDisplayed());
         Assert.assertEquals(checkout3Page.thanksMessage.getText(), thanksM);
         Assert.assertEquals(checkout3Page.checkOutMessage.getText(), checkOM);
-
-        //TODO: is cart empty
+        Assert.assertFalse(checkout3Page.cartBadgeIsPresent());
     }
 }

@@ -66,9 +66,10 @@ public class BaseTest {
         homepagePage.inputPassword(validPassword);
         homepagePage.clickOnLoginButton();
     }
-
+/*
     @AfterMethod
     public void tearDown() {
         driver.quit();
     }
+ */
 }
