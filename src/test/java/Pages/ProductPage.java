@@ -62,6 +62,21 @@ public class ProductPage extends BaseTest {
     @FindBy(id = "back-to-products")
     public WebElement backTPButton;
 
+    @FindBy(className = "footer")
+    public WebElement footer;
+
+    @FindBy(className = "footer_copy")
+    public WebElement footerCopy;
+
+    @FindBy(className = "social_twitter")
+    public WebElement twitterIcon;
+
+    @FindBy(className = "social_facebook")
+    public WebElement facebookIcon;
+
+    @FindBy(className = "social_linkedin")
+    public WebElement linkedInIcon;
+
     public void clickOnHamburger() {
         hamburger.click();
     }
@@ -92,6 +107,18 @@ public class ProductPage extends BaseTest {
 
     public void clickOnAtcButton() {
         atcButton.click();
+    }
+
+    public void clickOnTwiterrIcon() {
+        twitterIcon.click();
+    }
+
+    public void clickOnFbIcon() {
+        facebookIcon.click();
+    }
+
+    public void clickOnLinkedInIcon() {
+        linkedInIcon.click();
     }
 
     public boolean badgeIsPresent() {

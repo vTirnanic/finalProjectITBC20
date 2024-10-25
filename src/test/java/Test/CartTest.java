@@ -102,7 +102,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void userCanRemoveMultipleItemsFromCart() throws InterruptedException {
+    public void userCanRemoveMultipleItemsFromCart() {
         logIn();
         inventoryPage.clickOnAtcButton(2);
         inventoryPage.clickOnAtcButton(0);
@@ -153,7 +153,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void userCanPurchaseMultipleItems() throws InterruptedException {
+    public void userCanPurchaseMultipleItems() {
         String firstName = excelReader.getStringData("Sheet1", 1, 4);
         String lastName = excelReader.getStringData("Sheet1", 1, 5);
         String postalCode = String.valueOf(excelReader.getIntegerData("Sheet1", 1, 6));
