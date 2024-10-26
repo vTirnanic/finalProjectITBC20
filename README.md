@@ -7,7 +7,7 @@ Test Cases
 - TestCases-file
 
 Bug Reports
-- BugReport-file
+- BugReports-file
 
 Automation tests (Selenium)
 - CartTest
