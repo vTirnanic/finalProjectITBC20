@@ -10,7 +10,7 @@ Bug Reports
 - [SauceDemoBugReports](SauceDemo-BugReports.pdf)
 
 Automation tests (Selenium)
-- CartTest
+- [CartTest](src/test/java/Test/CartTest.java)
 - End2EndTest
 - FooterTest
 - InventoryPageTest
