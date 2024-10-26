@@ -29,4 +29,4 @@ Vladimir Tirnanic
 
 ### Contact
 
-**vtirnanic@gmail.com**
+*vtirnanic@gmail.com*
