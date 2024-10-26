@@ -16,33 +16,28 @@ public class End2EndTest extends BaseTest {
 
         logIn();
         inventoryPage.clickOnAtcButton(0);
-        inventoryPage.clickOnAtcButton(1);
 
-        Assert.assertEquals(cartPage.cartBadge.getText(),"2");
+        Assert.assertEquals(inventoryPage.cartBadge.getText(),"1");
 
         inventoryPage.openProductPageByTitleNumber(3);
         productPage.clickOnAtcButton();
-        productPage.clickOnBackTPButton();
-        inventoryPage.openProductPageByTitleNumber(1);
-        productPage.clickOnAtcButton();
 
-        Assert.assertEquals(productPage.cartBadge.getText(),"4");
+        Assert.assertEquals(productPage.cartBadge.getText(),"2");
 
         productPage.clickOnBackTPButton();
+
         scrollToElement(inventoryPage.itemTitles.get(4));
         inventoryPage.openProductPageByImageNumber(4);
         productPage.clickOnAtcButton();
-        productPage.clickOnBackTPButton();
-        inventoryPage.openProductPageByImageNumber(5);
-        productPage.clickOnAtcButton();
+
+        Assert.assertEquals(productPage.cartBadge.getText(),"3");
+
         productPage.clickOnCartIcon();
 
-        Assert.assertEquals(cartPage.cartBadge.getText(),"6");
-
         cartPage.clickOnRemoveButton(0);
         cartPage.clickOnRemoveButton(0);
 
-        Assert.assertEquals(cartPage.cartBadge.getText(),"4");
+        Assert.assertEquals(cartPage.cartBadge.getText(),"1");
 
         cartPage.clickOnCheckOutButton();
         checkout1Page.inputFirstName(firstName);
