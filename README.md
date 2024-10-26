@@ -27,6 +27,6 @@ various input scenarios.
 Vladimir Tirnanic  
 [LinkedIn Profile](https://www.linkedin.com/in/vladimir-tirnanic/)
 
-### Contact Information
+#### Contact Information
 
 For inquiries please reach out via email: vtirnanic@gmail.com
