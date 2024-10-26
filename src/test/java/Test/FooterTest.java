@@ -16,17 +16,12 @@ public class FooterTest extends BaseTest {
     String linkedInURL = "https://www.linkedin.com/company/sauce-labs/";
 
     @Test
-    public void userCanSeeFooterCopyOnInventoryPage() {
+    public void userCanAccessAllFooterLinksOnInventoryPage() throws InterruptedException {
         logIn();
         scrollToElement(inventoryPage.footer);
 
         Assert.assertEquals(inventoryPage.footerCopy.getText(), footerText);
-    }
 
-    @Test
-    public void userCanAccessFooterLinksOnInventoryPage() throws InterruptedException {
-        logIn();
-        scrollToElement(inventoryPage.footer);
         inventoryPage.clickOnTwiterrIcon();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(driver -> driver.getWindowHandles().size() > 1);
@@ -58,19 +53,13 @@ public class FooterTest extends BaseTest {
     }
 
     @Test
-    public void userCanSeeFooterCopyOnProductPage() {
+    public void userCanAccessAllFooterLinksOnProductPage() throws InterruptedException {
         logIn();
         inventoryPage.openProductPageByTitleNumber(0);
         scrollToElement(productPage.footer);
 
         Assert.assertEquals(productPage.footerCopy.getText(), footerText);
-    }
 
-    @Test
-    public void userCanAccessFooterLinksOnProductPage() throws InterruptedException {
-        logIn();
-        inventoryPage.openProductPageByTitleNumber(0);
-        scrollToElement(productPage.footer);
         productPage.clickOnTwiterrIcon();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(driver -> driver.getWindowHandles().size() > 1);

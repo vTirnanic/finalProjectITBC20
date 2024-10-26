@@ -11,10 +11,10 @@ import java.time.Duration;
 public class SidebarTest extends BaseTest {
 
     String homePageURL = "https://www.saucedemo.com/";
-    String aboutURL = "https://saucelabs.com/";
+    String aboutURL = "https://www.saucedemo.com/about.html";
 
     @Test
-    public void userCanOpenAndCloseSidebarOnInventoryPage() throws InterruptedException {
+    public void userCanOpenAndCloseSidebarOnInventoryPage() {
         logIn();
         inventoryPage.clickOnHamburger();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -36,6 +36,9 @@ public class SidebarTest extends BaseTest {
 
         inventoryPage.clickOnHamburger();
         inventoryPage.clickOnAllItems();
+
+        Assert.assertEquals(inventoryPage.inventoryItems.size(),6);
+
         inventoryPage.clickOnAbout();
 
         Assert.assertEquals(driver.getCurrentUrl(), aboutURL);
