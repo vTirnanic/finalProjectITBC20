@@ -13,9 +13,9 @@ Automation tests (Selenium)
 - CartTest
 - End2EndTest
 - FooterTest
-- InventorypageTest
+- InventoryPageTest
 - LoginTest
-- ProductpageTest
+- ProductPageTest
 - SidebarTest
 - SortingTest
 
