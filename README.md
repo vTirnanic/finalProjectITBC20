@@ -22,7 +22,7 @@ various input scenarios.
 ## Automated tests
 - [Java/Selenium](src/test/java/)
 
-## Author
+### Author
 
 Vladimir Tirnanic  
 [LinkedIn Profile](https://www.linkedin.com/in/vladimir-tirnanic/)
