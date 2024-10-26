@@ -11,12 +11,12 @@ Bug Reports
 
 Automation tests (Selenium)
 - [CartTest](src/test/java/Test/CartTest.java)
-- [End2EndTest](src/test/java/Test/End2End.java)
+- [End2EndTest](src/test/java/Test/End2EndTest.java)
 - [FooterTest](src/test/java/Test/FooterTest.java)
-- InventoryPageTest
-- LoginTest
-- ProductPageTest
-- SidebarTest
-- SortingTest
+- [InventoryPageTest](src/test/java/Test/InventoryPageTest.java)
+- [LoginTest](src/test/java/Test/LoginTest.java)
+- [ProductPageTest](src/test/java/Test/ProductPageTest.java)
+- [SidebarTest](src/test/java/Test/SidebarTest.java)
+- [SortingTest](src/test/java/Test/SortingTest.java)
 
 
