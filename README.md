@@ -1,3 +1,5 @@
+# Final Project Overview
+
 This is my final project for the Software Tester (QA) training program at the IT Bootcamp School in Belgrade, Serbia, 
 conducted from August to October 2024.
 
@@ -27,4 +29,11 @@ Automation tests
 - [SidebarTest](src/test/java/Test/SidebarTest.java)
 - [SortingTest](src/test/java/Test/SortingTest.java)
 
+## Author
 
+Vladimir Tirnanic  
+[LinkedIn Profile](https://www.linkedin.com/in/vladimir-tirnanic/)
+
+### Contact Information
+
+For inquiries please reach out via email: vtirnanic@gmail.com
