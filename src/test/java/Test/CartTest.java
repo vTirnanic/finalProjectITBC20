@@ -10,7 +10,7 @@ public class CartTest extends BaseTest {
     String checkOM = "Checkout: Complete!";
 
     @Test
-    public void userCanOpenCartFromInventoryPage() {
+    public void userCanOpenCartOnInventoryPage() {
         logIn();
         inventoryPage.clickOnCartIcon();
 
@@ -29,7 +29,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void userCanOpenCartFromProductPage() {
+    public void userCanOpenCartOnProductPage() {
         logIn();
         inventoryPage.openProductPageByTitleNumber(0);
         productPage.clickOnCartIcon();
@@ -118,7 +118,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void userCanAccessToProductDetailsFromCart() {
+    public void userCanAccessProductDetailsFromCart() {
         logIn();
         inventoryPage.clickOnAtcButton(1);
         inventoryPage.clickOnCartIcon();
@@ -150,6 +150,7 @@ public class CartTest extends BaseTest {
         Assert.assertTrue(checkout3Page.backHomeButton.isDisplayed());
         Assert.assertEquals(checkout3Page.thanksMessage.getText(), thanksM);
         Assert.assertEquals(checkout3Page.checkOutMessage.getText(), checkOM);
+        Assert.assertFalse(elementIsDisplayed(checkout3Page.cartBadge));
     }
 
     @Test
@@ -174,6 +175,7 @@ public class CartTest extends BaseTest {
         Assert.assertTrue(checkout3Page.backHomeButton.isDisplayed());
         Assert.assertEquals(checkout3Page.thanksMessage.getText(), thanksM);
         Assert.assertEquals(checkout3Page.checkOutMessage.getText(), checkOM);
+        Assert.assertFalse(elementIsDisplayed(checkout3Page.cartBadge));
     }
 
     @Test
@@ -261,7 +263,5 @@ public class CartTest extends BaseTest {
         cartPage.clickOnRemoveButton(0);
 
         Assert.assertFalse(elementIsDisplayed(cartPage.cartBadge));
-
-        //TODO: Test - sum of prices
     }
 }

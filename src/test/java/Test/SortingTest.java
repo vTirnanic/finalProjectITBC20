@@ -7,6 +7,17 @@ import org.testng.annotations.Test;
 public class SortingTest extends BaseTest {
 
     @Test
+    public void userCanSortItemByNAZ() {
+        logIn();
+        System.out.println(inventoryPage.itemTitlesBeforeSorting());
+        System.out.println(inventoryPage.sortedTitlesNO());
+        inventoryPage.selectSortOption("Name (A to Z)");
+        System.out.println(inventoryPage.itemTitlesAfterSorting());
+
+        Assert.assertEquals(inventoryPage.itemTitlesAfterSorting(), inventoryPage.sortedTitlesNO());
+    }
+
+    @Test
     public void userCanSortItemByNZA() {
         logIn();
         System.out.println(inventoryPage.itemTitlesBeforeSorting());
@@ -15,18 +26,6 @@ public class SortingTest extends BaseTest {
         System.out.println(inventoryPage.itemTitlesAfterSorting());
 
         Assert.assertEquals(inventoryPage.itemTitlesAfterSorting(), inventoryPage.sortedTitlesRO());
-    }
-
-    @Test
-    public void userCanSortItemByNAZ() {
-        logIn();
-        inventoryPage.selectSortOption("Name (Z to A)");
-        System.out.println(inventoryPage.itemTitlesBeforeSorting());
-        System.out.println(inventoryPage.sortedTitlesNO());
-        inventoryPage.selectSortOption("Name (A to Z)");
-        System.out.println(inventoryPage.itemTitlesAfterSorting());
-
-        Assert.assertEquals(inventoryPage.itemTitlesAfterSorting(), inventoryPage.sortedTitlesNO());
     }
 
     @Test
