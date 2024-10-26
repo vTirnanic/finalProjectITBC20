@@ -37,30 +37,15 @@ public class InventoryPageTest extends BaseTest {
         Assert.assertTrue(productPage.backTPButton.isDisplayed());
 
         productPage.clickOnBackTPButton();
-        inventoryPage.openProductPageByTitleNumber(1);
+
+        Assert.assertTrue(inventoryPage.titleProducts.isDisplayed());
+
+        inventoryPage.openProductPageByImageNumber(1);
 
         Assert.assertTrue(productPage.backTPButton.isDisplayed());
 
         productPage.clickOnBackTPButton();
-        inventoryPage.openProductPageByTitleNumber(2);
 
-        Assert.assertTrue(productPage.backTPButton.isDisplayed());
-
-        productPage.clickOnBackTPButton();
-        inventoryPage.openProductPageByTitleNumber(3);
-
-        Assert.assertTrue(productPage.backTPButton.isDisplayed());
-
-        productPage.clickOnBackTPButton();
-        inventoryPage.openProductPageByTitleNumber(4);
-
-        Assert.assertTrue(productPage.backTPButton.isDisplayed());
-
-        productPage.clickOnBackTPButton();
-        inventoryPage.openProductPageByTitleNumber(5);
-
-        Assert.assertTrue(productPage.backTPButton.isDisplayed());
-
-        productPage.clickOnBackTPButton();
+        Assert.assertTrue(inventoryPage.titleProducts.isDisplayed());
     }
 }

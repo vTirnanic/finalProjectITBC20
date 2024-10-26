@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -61,10 +62,14 @@ public class BaseTest {
     public void logIn() {
         String validUsername = excelReader.getStringData("Sheet1", 1, 0);
         String validPassword = excelReader.getStringData("Sheet1", 1, 1);
+        String inventoryURL = "https://www.saucedemo.com/inventory.html";
 
         homepagePage.inputUsername(validUsername);
         homepagePage.inputPassword(validPassword);
         homepagePage.clickOnLoginButton();
+
+        Assert.assertEquals(driver.getCurrentUrl(),inventoryURL);
+        Assert.assertTrue(inventoryPage.cartIcon.isDisplayed());
     }
 
     public boolean elementIsDisplayed(WebElement element) {

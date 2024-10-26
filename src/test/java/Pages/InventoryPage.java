@@ -133,6 +133,14 @@ public class InventoryPage extends BaseTest {
         }
     }
 
+    public void openProductPageByImageNumber(int imageNumber) {
+        if (imageNumber >= 0 && imageNumber < itemTitles.size()) {
+            itemTitles.get(imageNumber).click();
+        } else {
+            System.out.println("Error: imageNumber is out of bounds.");
+        }
+    }
+
     public void clickOnAtcButton(int buttonNumber) {
         if (buttonNumber >= 0 && buttonNumber < addToCartButtons.size()) {
             addToCartButtons.get(buttonNumber).click();
