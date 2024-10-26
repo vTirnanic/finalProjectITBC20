@@ -101,7 +101,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void userCanLogutFromInvPage() {
+    public void userCanLogoutOnInventoryPage() {
         logIn();
         inventoryPage.clickOnHamburger();
         inventoryPage.clickOnLogoutLink();
@@ -111,7 +111,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void userCanLogoutFromProductPage() {
+    public void userCanLogoutOnProductPage() {
         logIn();
         inventoryPage.openProductPageByTitleNumber(1);
         productPage.clickOnHamburger();
@@ -122,7 +122,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void userCanLoginWithKeyboard() {
+    public void userCanLoginUsingKeyboard() {
         String validUsername = excelReader.getStringData("Sheet1", 1, 0);
         String validPassword = excelReader.getStringData("Sheet1", 1, 1);
 
