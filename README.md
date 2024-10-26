@@ -4,10 +4,10 @@ to November 2024.
 Manual and automated testing of the e-commerce website saucedemo.com with detailed bug reports.
 
 Test Cases
-- [TestCases](SauceDemo-TestCases.pdf)
+- [SauceDemoTestCases](SauceDemo-TestCases.pdf)
 
 Bug Reports
-- [BugReports](SauceDemo-BugReports.pdf)
+- [SauceDemoBugReports](SauceDemo-BugReports.pdf)
 
 Automation tests (Selenium)
 - CartTest
