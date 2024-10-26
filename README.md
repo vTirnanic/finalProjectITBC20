@@ -19,7 +19,7 @@ various input scenarios.
 ## Bug Reports
 - [SauceDemoBugReports](SauceDemo-BugReports.pdf)
 
-## Automated tests
+## Automated Tests
 - [Java/Selenium](src/test/java/)
 
 ### Author
@@ -27,6 +27,6 @@ various input scenarios.
 Vladimir Tirnanic  
 [LinkedIn Profile](https://www.linkedin.com/in/vladimir-tirnanic/)
 
-#### Contact Information
+### Contact Information
 
 For inquiries please reach out via email: vtirnanic@gmail.com
